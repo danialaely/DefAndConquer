@@ -35,6 +35,7 @@ public class Zoom : MonoBehaviour
     {
         isPaused = false;
         pausePanel.SetActive(false);
+        Debug.Log("Ho raha hai kuch?");
     }
 
     //private Vector3 Origin;
