@@ -64,6 +64,7 @@ public class SceneM : MonoBehaviourPunCallbacks
     private void Update()
     {
         Debug.Log("Network state:"+PhotonNetwork.NetworkClientState);
+        Debug.Log("fhyfjfyj");
        // Debug.Log("Room List Prefab:"+roomListPrefab+" "+" RoomListParent:"+roomListParent);
     }
 
