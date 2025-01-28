@@ -137,7 +137,7 @@ public class ButtonTurn : MonoBehaviourPunCallbacks, IOnEventCallback
         Scene cs = SceneManager.GetActiveScene();
         StartCoroutine(changebgImag(0.01f));
         
-        turnCoroutine = StartCoroutine(ChangeTurn(60.0f));
+        turnCoroutine = StartCoroutine(ChangeTurn(600.0f));
         
         TurnStarter(!isPlayer1Turn);
         secondAttackCheck = true;
@@ -966,7 +966,7 @@ public class ButtonTurn : MonoBehaviourPunCallbacks, IOnEventCallback
                 turnText.text = "P2 Turn";  //Button 
                 turnCount = 0;
                 turnBar.SetTurnTime(turnCount);
-                turnCount2 = 60;
+                turnCount2 = 600;
                 turnBar.SetTurnTime2(turnCount2);
 
                 deckP1.enabled = false;
@@ -998,7 +998,7 @@ public class ButtonTurn : MonoBehaviourPunCallbacks, IOnEventCallback
             {
                 gmm.ChangePhase(GamePhase.Draw);
                 turnText.text = "P1 Turn";
-                turnCount = 60;
+                turnCount = 600;
                 turnBar.SetTurnTime(turnCount);
 
                 turnCount2 = 0;
@@ -1039,7 +1039,7 @@ public class ButtonTurn : MonoBehaviourPunCallbacks, IOnEventCallback
         {
             gmm.ChangePhase(GamePhase.Draw);
             turnText.text = "P1 Turn";
-            turnCount = 60;
+            turnCount = 600;
             turnBar.SetTurnTime(turnCount);
 
             turnCount2 = 0;
@@ -1065,7 +1065,7 @@ public class ButtonTurn : MonoBehaviourPunCallbacks, IOnEventCallback
         {
             gmm.ChangePhase(GamePhase.Draw);
             turnText.text = "P2 Turn";
-            turnCount2 = 60;
+            turnCount2 = 600;
             turnBar.SetTurnTime2(turnCount2);
 
             turnCount = 0;
@@ -1110,7 +1110,7 @@ public class ButtonTurn : MonoBehaviourPunCallbacks, IOnEventCallback
                 {
                     gmm.ChangePhase(GamePhase.Draw);
                     turnText.text = "P1 Turn";
-                    turnCount = 60;
+                    turnCount = 600;
                     turnBar.SetTurnTime(turnCount);
 
                     turnCount2 = 0;
@@ -1124,7 +1124,7 @@ public class ButtonTurn : MonoBehaviourPunCallbacks, IOnEventCallback
                 {
                     gmm.ChangePhase(GamePhase.Draw);
                     turnText.text = "P2 Turn";
-                    turnCount2 = 60;
+                    turnCount2 = 600;
                     turnBar.SetTurnTime2(turnCount2);
                     // StartCoroutine(Turnbar2(1.0f));
 
@@ -1170,13 +1170,13 @@ public class ButtonTurn : MonoBehaviourPunCallbacks, IOnEventCallback
         }
 
         // Send the reset timer event to the client
-        object[] content = new object[] { 60.0f }; // Pass any additional data if necessary
+        object[] content = new object[] { 600.0f }; // Pass any additional data if necessary
         RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.Others };
         SendOptions sendOptions = new SendOptions { Reliability = true };
 
         PhotonNetwork.RaiseEvent(ResetTimerEventCode, content, raiseEventOptions, sendOptions);
 
-        turnCoroutine = StartCoroutine(ChangeTurn(60.0f));
+        turnCoroutine = StartCoroutine(ChangeTurn(600.0f));
     }
 
     private void ResetClientTimer(float timerValue)

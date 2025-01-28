@@ -25,6 +25,7 @@ public class SceneM : MonoBehaviourPunCallbacks
     public GameObject Toggles;
     public GameObject TogglePlayBtn;
     public GameObject LogoImg;
+    public GameObject BackFromLoadBtn;
 
     public TMP_InputField roomNameText;
 
@@ -58,6 +59,7 @@ public class SceneM : MonoBehaviourPunCallbacks
         MultiplayerBtn.gameObject.SetActive(false);
         Toggles.gameObject.SetActive(false);
         TogglePlayBtn.gameObject.SetActive(false);  
+        BackFromLoadBtn.gameObject.SetActive(false);
     }
     private void Update()
     {
@@ -108,8 +110,12 @@ public class SceneM : MonoBehaviourPunCallbacks
         //SceneManager.LoadScene("SampleScene");
 
         PhotonNetwork.LocalPlayer.NickName = menuToggleManager.GetUserName();
-        PhotonNetwork.ConnectUsingSettings();
-        ActivateMyPanel(ConnectingPanel.name);
+        if (!PhotonNetwork.IsConnected) 
+        {
+            PhotonNetwork.ConnectUsingSettings();
+            ActivateMyPanel(ConnectingPanel.name);
+        }
+        ActivateMyPanel(LobbyPanel.name);
     }
 
     public override void OnDisconnected(DisconnectCause cause)
@@ -119,10 +125,26 @@ public class SceneM : MonoBehaviourPunCallbacks
 
     public void LoadModePanel() 
     {
+        //Back button should be enabled
+        BackFromLoadBtn.gameObject.SetActive(true);
         InitialPlayBtn.gameObject.SetActive(false);
         LogoImg.gameObject.SetActive(false);
         SinglePlayerBtn.gameObject.SetActive(true);
         MultiplayerBtn.gameObject.SetActive(true);
+    }
+
+    public void BackFromLoadPanel() 
+    {
+        BackFromLoadBtn.gameObject.SetActive(false);
+        InitialPlayBtn.gameObject.SetActive(true);
+        LogoImg.gameObject.SetActive(true);
+        SinglePlayerBtn.gameObject.SetActive(false);
+        MultiplayerBtn.gameObject.SetActive(false);
+
+        Toggles.gameObject.SetActive(false);
+        SinglePlayerBtn.gameObject.SetActive(false);
+        MultiplayerBtn.gameObject.SetActive(false);
+        TogglePlayBtn.gameObject.SetActive(false);
     }
 
     public void OnClickRoomCreate() 

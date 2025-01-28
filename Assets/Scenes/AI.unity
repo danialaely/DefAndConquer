@@ -361,9 +361,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 60
+  m_MaxValue: 600
   m_WholeNumbers: 1
-  m_Value: 60
+  m_Value: 600
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2842,6 +2842,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &103581799
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3699,6 +3700,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &110413691
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -5011,6 +5013,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &126919881
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -6338,6 +6341,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &137169813
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -8786,6 +8790,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &162252936
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -10896,6 +10901,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &221550786
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -14564,6 +14570,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &327460117
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -15966,6 +15973,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &369664182
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -18631,6 +18639,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &404767728
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -19694,6 +19703,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &413228685
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -20546,6 +20556,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &422209859
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -22440,6 +22451,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &437691606
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -27304,6 +27316,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &521585664
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -33979,6 +33992,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &696725877
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -34819,6 +34833,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &697075517
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -38024,6 +38039,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &736103385
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -46916,6 +46932,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &887216699
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -48328,6 +48345,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &903307105
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -49502,6 +49520,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &915578736
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -54744,6 +54763,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &1033557562
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -59762,6 +59782,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &1174721819
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -60784,7 +60805,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 60
+  m_MaxValue: 600
   m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
@@ -61717,6 +61738,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &1214885554
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -63846,6 +63868,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &1275417427
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -64215,8 +64238,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.819275, y: 0.6525879}
-  m_SizeDelta: {x: 2204.8984, y: 1013.1716}
+  m_AnchoredPosition: {x: 0.08892822, y: -3.2644958}
+  m_SizeDelta: {x: 3127.8047, y: 1468.8049}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1291467732
 MonoBehaviour:
@@ -66035,6 +66058,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &1322447476
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -69404,6 +69428,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &1365877952
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -73018,6 +73043,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &1433556482
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -75493,6 +75519,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &1477093894
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -79494,6 +79521,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &1527229171
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -80375,6 +80403,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &1529615366
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -82123,6 +82152,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &1554088472
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -82565,6 +82595,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &1559227098
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -89471,6 +89502,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &1744196529
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -94006,6 +94038,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &1896393044
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -95654,6 +95687,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &1944174847
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -96927,6 +96961,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &1974909842
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -97913,6 +97948,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &1979539352
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -99447,6 +99483,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &2024895048
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -101379,6 +101416,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &2045142965
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -102293,6 +102331,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &2059892644
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -105939,6 +105978,7 @@ MonoBehaviour:
   allSHP2Cards: []
   p1AdjacentToP2: []
   selectedP1Cards: []
+  addToMovement: 0
 --- !u!225 &206386808268493637
 CanvasGroup:
   m_ObjectHideFlags: 0
