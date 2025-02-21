@@ -50,7 +50,7 @@ public class Dice : MonoBehaviourPunCallbacks
 
     public ButtonTurn btnTurn;
 
-    public GameObject AtcFailedTxt;
+    public TMP_Text AtcFailedTxt;
 
   //  public TMP_Text SHoldHealthP1;
   //  float healthValStP1;
@@ -80,7 +80,7 @@ public class Dice : MonoBehaviourPunCallbacks
 
         CounterAttackinP1 = false;
         CounterAttackinP2 = false;
-        AtcFailedTxt.SetActive(false);
+        AtcFailedTxt.gameObject.SetActive(false);
       //  healthValStP1 = 100.0f;
       //  SHoldHealthP1.text = healthValStP1.ToString();
 
@@ -251,7 +251,10 @@ public class Dice : MonoBehaviourPunCallbacks
                             {
                                 if (defenderCard.photonView.Owner != PhotonNetwork.LocalPlayer) { defenderCard.photonView.RequestOwnership(); }
                             }
-
+                            //HHHHHHHHHHHH
+                            AtcFailedTxt.text = "Attack Succeeded";
+                            AtcFailedTxt.gameObject.SetActive(true);
+                            StartCoroutine(disableAtcTxt(1.0f));
                             discaranimator.SetBool("isDiscard", true);
                             Transform discarcard = defenderCard.transform;
                             discarcard.SetParent(discardpile.transform);
@@ -281,7 +284,9 @@ public class Dice : MonoBehaviourPunCallbacks
                             {
                                 if (defenderCard.photonView.Owner != PhotonNetwork.LocalPlayer) { defenderCard.photonView.RequestOwnership(); }
                             }
-
+                            AtcFailedTxt.text = "Attack Succeeded";
+                            AtcFailedTxt.gameObject.SetActive(true);
+                            StartCoroutine(disableAtcTxt(1.0f));
                             discaranimator.SetBool("isDiscard", true);
                             Transform discarcard = defenderCard.transform;
                             discarcard.SetParent(discardpile.transform);
@@ -306,6 +311,10 @@ public class Dice : MonoBehaviourPunCallbacks
                         {
                             Debug.Log("Defense More Than Twice");
                             Debug.Log("Hit");
+
+                            AtcFailedTxt.text = "Attack Failed";
+                            AtcFailedTxt.gameObject.SetActive(true);
+                            StartCoroutine(disableAtcTxt(1.0f));
 
                             int value = BoardSlot.GetCurrentEnergyP2();
                             value -= 1;
@@ -332,6 +341,9 @@ public class Dice : MonoBehaviourPunCallbacks
                                     if ((GetDice() + defenderCard.GetP1Power()) < ((GetDice2()) + defenderCard.GetP2Power()))
                                     {
                                         Debug.Log("Counter Attacked Succeeded");
+                                        AtcFailedTxt.text = "Counter Attack Succeeded";
+                                        AtcFailedTxt.gameObject.SetActive(true);
+                                        StartCoroutine(disableAtcTxt(1.0f));
 
                                         if (currentScene.name == "SampleScene")
                                         {
@@ -351,7 +363,8 @@ public class Dice : MonoBehaviourPunCallbacks
                                     else 
                                     { 
                                         Debug.Log("Counter Attacked Failed");
-                                        AtcFailedTxt.SetActive(true);
+                                        AtcFailedTxt.text = "Counter Attack Failed";
+                                        AtcFailedTxt.gameObject.SetActive(true);
                                         StartCoroutine(disableAtcTxt(1.0f));
                                     }
                                 }
@@ -361,7 +374,8 @@ public class Dice : MonoBehaviourPunCallbacks
                         else 
                         {
                             Debug.Log("Attack failed.");
-                            AtcFailedTxt.SetActive(true);
+                            AtcFailedTxt.text = "Attack Failed";
+                            AtcFailedTxt.gameObject.SetActive(true);
                             StartCoroutine(disableAtcTxt(1.0f));
                             foreach (DisplayCard atcCard in allDisplayCards)
                             {
@@ -456,6 +470,9 @@ public class Dice : MonoBehaviourPunCallbacks
                                 defcard.OnPtcClk(); //MADE CHANGES HERE
                             }
 
+                            AtcFailedTxt.text = "AI Attack Succeeded";
+                            AtcFailedTxt.gameObject.SetActive(true);
+                            StartCoroutine(disableAtcTxt(1.0f));
                             animator2.SetBool("isDiscarded", true);
                             Transform discardCard = defcard.transform;
                             discardCard.SetParent(discardpile2.transform);
@@ -478,6 +495,9 @@ public class Dice : MonoBehaviourPunCallbacks
                                 defcard.OnPtcClk(); //MADE CHANGES HERE
                             }
 
+                            AtcFailedTxt.text = "AI Attack Succeeded";
+                            AtcFailedTxt.gameObject.SetActive(true);
+                            StartCoroutine(disableAtcTxt(1.0f));
                             animator2.SetBool("isDiscarded", true);
                             Transform discardCard = defcard.transform;
                             discardCard.SetParent(discardpile2.transform);
@@ -497,6 +517,9 @@ public class Dice : MonoBehaviourPunCallbacks
                             Debug.Log("Defense More Than Twice");
                             Debug.Log("Hit");
                             DiceSound();
+                            AtcFailedTxt.text = "AI Attack Failed";
+                            AtcFailedTxt.gameObject.SetActive(true);
+                            StartCoroutine(disableAtcTxt(1.0f));
 
                             int val = BoardSlot.GetCurrentEnergy();
                             val -= 1;
@@ -522,6 +545,9 @@ public class Dice : MonoBehaviourPunCallbacks
                                     if ((GetDice() + defcard.Getp2Power()) < ((GetDice2()) + defcard.Getp1Power()))
                                     {
                                         Debug.Log("Counter Attacked Succeeded");
+                                        AtcFailedTxt.text = "Counter Attack Succeeded";
+                                        AtcFailedTxt.gameObject.SetActive(true);
+                                        StartCoroutine(disableAtcTxt(1.0f));
 
                                         discaranimator.SetBool("isDiscard", true);
                                         Transform discards = atcCard.transform;
@@ -540,14 +566,21 @@ public class Dice : MonoBehaviourPunCallbacks
                                         //   healthValStP2 -= 2.5f;
                                         //   SHoldHealthP2.text = healthValStP2.ToString();
                                     }
-                                    else { Debug.Log("Counter Attacked Failed"); }
+                                    else 
+                                    {
+                                        Debug.Log("Counter Attacked Failed");
+                                        AtcFailedTxt.text = "Counter Attack Failed";
+                                        AtcFailedTxt.gameObject.SetActive(true);
+                                        StartCoroutine(disableAtcTxt(1.0f));
+                                    }
                                 }
                             }
                         }
                         else 
                         {
                             Debug.Log("Ai Attack Failed");
-                            AtcFailedTxt.SetActive(true);
+                            AtcFailedTxt.text = "AI Attack Failed";
+                            AtcFailedTxt.gameObject.SetActive(true);
                             StartCoroutine(disableAtcTxt(1.0f));
                         }
                     }
@@ -655,6 +688,6 @@ public class Dice : MonoBehaviourPunCallbacks
     IEnumerator disableAtcTxt(float del) 
     {
         yield return new WaitForSeconds(del);
-        AtcFailedTxt.SetActive(false);
+        AtcFailedTxt.gameObject.SetActive(false);
     }
 }

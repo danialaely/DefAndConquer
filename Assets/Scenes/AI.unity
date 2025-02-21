@@ -100038,7 +100038,7 @@ MonoBehaviour:
   allSHP2Cards: []
   allSHP1Cards: []
   btnTurn: {fileID: 733181123}
-  AtcFailedTxt: {fileID: 894072217}
+  AtcFailedTxt: {fileID: 894072219}
 --- !u!1 &2034004679
 GameObject:
   m_ObjectHideFlags: 0
@@ -100190,7 +100190,7 @@ MonoBehaviour:
   allSHP2Cards: []
   allSHP1Cards: []
   btnTurn: {fileID: 733181123}
-  AtcFailedTxt: {fileID: 894072217}
+  AtcFailedTxt: {fileID: 894072219}
 --- !u!114 &2039420418
 MonoBehaviour:
   m_ObjectHideFlags: 0

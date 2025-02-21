@@ -18,6 +18,8 @@ public class SceneM : MonoBehaviourPunCallbacks
     public GameObject RoomListPanel;
     public GameObject SettingsPanel;
     public GameObject BackPanel;
+    public GameObject ProfilePanel;
+    public GameObject StorePanel;
 
     public GameObject SinglePlayerBtn;
     public GameObject MultiplayerBtn;
@@ -64,7 +66,7 @@ public class SceneM : MonoBehaviourPunCallbacks
     private void Update()
     {
         Debug.Log("Network state:"+PhotonNetwork.NetworkClientState);
-        Debug.Log("fhyfjfyj");
+        //Debug.Log("fhyfjfyj");
        // Debug.Log("Room List Prefab:"+roomListPrefab+" "+" RoomListParent:"+roomListParent);
     }
 
@@ -190,6 +192,21 @@ public class SceneM : MonoBehaviourPunCallbacks
         sfxSlider.onValueChanged.AddListener(OnSfxSliderValueChanged);
     }
 
+    public void ProfileClick() 
+    {
+        ActivateMyPanel(ProfilePanel.name);
+    }
+
+    public void StoreClick() 
+    {
+        ActivateMyPanel(StorePanel.name);
+    }
+
+    public void BackFromProfileorStore() 
+    {
+        ActivateMyPanel(BackPanel.name);
+    }
+
     private void OnSfxSliderValueChanged(float val)
     {
         SFXVolume();
@@ -271,6 +288,8 @@ public class SceneM : MonoBehaviourPunCallbacks
         InsideRoomPanel.SetActive(panelName.Equals(InsideRoomPanel.name));
         SettingsPanel.SetActive(panelName.Equals(SettingsPanel.name));
         BackPanel.SetActive(panelName.Equals(BackPanel.name));
+        StorePanel.SetActive(panelName.Equals(StorePanel.name));
+        ProfilePanel.SetActive(panelName.Equals(ProfilePanel.name));
     }
 
     public void RoomJoinFromList(string roomName) 

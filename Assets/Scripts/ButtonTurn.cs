@@ -581,7 +581,8 @@ public class ButtonTurn : MonoBehaviourPunCallbacks, IOnEventCallback
             {
                 if (slot.childCount > 0)  // Added check for child count
                 {
-                    if (slot.GetChild(0).gameObject.CompareTag("Player2"))  // Changed to CompareTag for efficiency
+                    GameObject childObject = slot.GetChild(0).gameObject;
+                    if (childObject.CompareTag("Player2") && childObject.GetComponent<DisplayCard2>() != null)  // Changed to CompareTag for efficiency
                     {
                         // Make a new list and add them to that list   List name: AiAttackCards
                         AiAttackCards.Add(slot.GetChild(0).gameObject);
