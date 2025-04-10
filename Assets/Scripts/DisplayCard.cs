@@ -15,6 +15,7 @@ using ExitGames.Client.Photon;
 public class DisplayCard : MonoBehaviourPunCallbacks, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, IOnEventCallback
 {
     public List<Card> display = new List<Card>();
+    //public List<Card> premium = new List<Card>();    For premium Deck
     public int displayId;
     public int cardid;
 
@@ -130,9 +131,9 @@ public class DisplayCard : MonoBehaviourPunCallbacks, IBeginDragHandler, IDragHa
         Scene cs = SceneManager.GetActiveScene();
         if (cs.name == "AI") 
         {
-        Card card = display.Find(c => c.cardId == displayId);
-        
-        if (card != null)
+        Card card = display.Find(c => c.cardId == displayId);  // if Default Deck is Active
+                                                               //Card card = premium.Find(c => c.cardId == displayId)  if Premium Deck is Active
+            if (card != null)
         {
             nameText.text = card.cardName;
             attackText.text = card.cardAttack.ToString();

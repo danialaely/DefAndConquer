@@ -1,0 +1,1 @@
+D:\UnityProjects\GithubProjects\Defend-and-Conquer\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\4d3w4h29\obj\armeabi-v7a

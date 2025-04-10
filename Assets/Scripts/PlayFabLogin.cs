@@ -11,10 +11,12 @@ public class PlayFabLogin : MonoBehaviour
 
     public GameObject UsernamePanel;
     public GameObject WelcomePanel;
+    public GameObject LoadingPanel;
     public TMP_InputField usernameInputField; // Input field for player nickname
     private string defaultUsername = "Playing first time";
     public SceneM sm;
     public TMP_Text UsernameTxt;
+    public MenuToggleManager menuToggleManager;
 
     public void Start()
     {
@@ -24,7 +26,7 @@ public class PlayFabLogin : MonoBehaviour
             PlayFabSettings.TitleId = "D8446"; // Please change this value to your own titleId from PlayFab Game Manager
         }
         
-
+        LoadingPanel.SetActive(true);
 #if UNITY_ANDROID
         var requestAndroid = new LoginWithAndroidDeviceIDRequest { AndroidDeviceId = ReturnMobileID(), CreateAccount = true };
         PlayFabClientAPI.LoginWithAndroidDeviceID(requestAndroid, OnLoginAndroidSuccess, OnLoginAndroidFailure);
@@ -43,6 +45,7 @@ public class PlayFabLogin : MonoBehaviour
     {
       //  FetchHighScoreFromPlayFab();
         Debug.Log("Successfully Loggedin with Android ID");
+        LoadingPanel.SetActive(false);
         //  GetPlayerDisplayName();
         //  GetLeaderboard();
         //LoadingPanel.SetActive(false);
@@ -63,12 +66,14 @@ public class PlayFabLogin : MonoBehaviour
                 ActivateMyPanel(WelcomePanel.name);
                 PlayerPrefs.SetString("Username", currentUsername);
                 UpdateUsernameUI(currentUsername);
+                menuToggleManager.SetUserName(currentUsername);
             }
         }, error => Debug.LogError(error.GenerateErrorReport()));
     }
 
     private void OnLoginAndroidFailure(PlayFabError error)
     {
+        ActivateMyPanel(WelcomePanel.name);
         Debug.LogError(error.GenerateErrorReport());
     }
 

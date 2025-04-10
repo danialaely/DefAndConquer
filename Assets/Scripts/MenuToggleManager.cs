@@ -112,4 +112,9 @@ public class MenuToggleManager : MonoBehaviour
         return playerName; // Use the static variable to persist the name
     }
 
+    public void SetUserName(string playername) 
+    {
+        playerName = playername;
+    }
+
 }
