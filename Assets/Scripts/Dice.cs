@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Photon.Realtime;
 using static UnityEngine.GraphicsBuffer;
 
 public class Dice : MonoBehaviourPunCallbacks
@@ -417,10 +418,18 @@ public class Dice : MonoBehaviourPunCallbacks
                             if (StrongholdCardP2.GetCardHealth() <=0 ) 
                             {
                                 Debug.Log("GAME OVER!, P1 Wins");
-                             //discaranimator.SetBool("isDiscard", true);
-                             // Transform discarcard = defenderCard.transform;
-                             //  discarcard.SetParent(discardpile.transform);
-                             //  DiscardSound();
+
+                                Player p1 = PhotonNetwork.CurrentRoom.GetPlayer(1);
+                                Player p2 = PhotonNetwork.CurrentRoom.GetPlayer(2);
+
+                                // +20 to P1, –20 to P2
+                                PlayerStats.AddPointsToPlayer(p1, +20);
+                                PlayerStats.AddPointsToPlayer(p2, -20);
+
+                                //discaranimator.SetBool("isDiscard", true);
+                                // Transform discarcard = defenderCard.transform;
+                                //  discarcard.SetParent(discardpile.transform);
+                                //  DiscardSound();
                             }
 
                              //  healthValStP2 -= 2.5f;
@@ -613,13 +622,19 @@ public class Dice : MonoBehaviourPunCallbacks
                         if (StrongholdCardP1.GetCardHealth() <=0) 
                         {
                             Debug.Log("GAME OVER, P2 WINS");
-                        // Debug.Log("Discard Value:" +defcard.GetDiscard());
-                        // Destroy(defcard.gameObject);
-                        // animator2.SetBool("isDiscarded", true);
-                        //Transform discardCard = defcard.transform;
-                        //discardCard.SetParent(discardpile2.transform);
-                        //DiscardSound();
-                        }
+
+                                Player p1 = PhotonNetwork.CurrentRoom.GetPlayer(1);
+                                Player p2 = PhotonNetwork.CurrentRoom.GetPlayer(2);
+
+                                PlayerStats.AddPointsToPlayer(p1, -20);
+                                PlayerStats.AddPointsToPlayer(p2, +20);
+                                // Debug.Log("Discard Value:" +defcard.GetDiscard());
+                                // Destroy(defcard.gameObject);
+                                // animator2.SetBool("isDiscarded", true);
+                                //Transform discardCard = defcard.transform;
+                                //discardCard.SetParent(discardpile2.transform);
+                                //DiscardSound();
+                            }
 
                         //    healthValStP1 -= 2.5f;
                         //    SHoldHealthP1.text = healthValStP1.ToString();
