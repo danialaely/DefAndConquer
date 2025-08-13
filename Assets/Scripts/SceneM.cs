@@ -118,7 +118,7 @@ public class SceneM : MonoBehaviourPunCallbacks
             PhotonNetwork.ConnectUsingSettings();
             ActivateMyPanel(ConnectingPanel.name);
         }
-        ActivateMyPanel(LobbyPanel.name);
+       // ActivateMyPanel(LobbyPanel.name);
     }
 
     public override void OnDisconnected(DisconnectCause cause)
