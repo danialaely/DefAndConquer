@@ -1,4 +1,4 @@
-using PlayFab;
+﻿using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine;
 using System.Collections;
@@ -17,6 +17,9 @@ public class PlayFabLogin : MonoBehaviour
     public SceneM sm;
     public TMP_Text UsernameTxt;
     public MenuToggleManager menuToggleManager;
+
+    private int myXP = 0;
+    private string myRank = "Bronze";
 
     public void Start()
     {
@@ -40,12 +43,23 @@ public class PlayFabLogin : MonoBehaviour
 #endif
     }
 
-  
+    private string GetRankFromXP(int xp)
+    {
+        if (xp <= 100) return "Bronze";
+        if (xp <= 200) return "Silver";
+        if (xp <= 300) return "Gold";
+        if (xp <= 400) return "Platinum";
+        if (xp <= 500) return "Diamond";
+        if (xp <= 600) return "Master";
+        return "Grandmaster";
+    }
+
     private void OnLoginAndroidSuccess(LoginResult result)
     {
       //  FetchHighScoreFromPlayFab();
         Debug.Log("Successfully Loggedin with Android ID");
         LoadingPanel.SetActive(false);
+        FetchXPAndRankFromPlayFab();
         //  GetPlayerDisplayName();
         //  GetLeaderboard();
         //LoadingPanel.SetActive(false);
@@ -69,6 +83,8 @@ public class PlayFabLogin : MonoBehaviour
                 menuToggleManager.SetUserName(currentUsername);
             }
         }, error => Debug.LogError(error.GenerateErrorReport()));
+
+        
     }
 
     private void OnLoginAndroidFailure(PlayFabError error)
@@ -81,6 +97,30 @@ public class PlayFabLogin : MonoBehaviour
     {
         string deviceID = SystemInfo.deviceUniqueIdentifier;
         return deviceID;
+    }
+
+    private void FetchXPAndRankFromPlayFab()
+    {
+        PlayFabClientAPI.GetUserData(new GetUserDataRequest(), res =>
+        {
+            if (res.Data != null && res.Data.ContainsKey("xp"))
+                int.TryParse(res.Data["xp"].Value, out myXP);
+            else
+                myXP = 0;
+
+            myRank = GetRankFromXP(myXP);
+
+            // ✔ Store for Photon to use later
+            PlayerPrefs.SetInt("PlayerXP", myXP);
+            PlayerPrefs.SetString("PlayerRank", myRank);
+        },
+        err =>
+        {
+            myXP = 0;
+            myRank = "Bronze";
+            PlayerPrefs.SetInt("PlayerXP", 0);
+            PlayerPrefs.SetString("PlayerRank", "Bronze");
+        });
     }
 
     public void SetUsername()

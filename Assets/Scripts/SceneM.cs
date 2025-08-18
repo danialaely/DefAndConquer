@@ -1,5 +1,6 @@
 using Photon.Pun;
 using System.Collections;
+//using ExitGames.Client.Photon;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -134,6 +135,31 @@ public class SceneM : MonoBehaviourPunCallbacks
         LogoImg.gameObject.SetActive(false);
         SinglePlayerBtn.gameObject.SetActive(true);
         MultiplayerBtn.gameObject.SetActive(true);
+    }
+
+    public void MatchmakingButton()
+    {
+        string playerRank = PlayerPrefs.GetString("PlayerRank", "Bronze");
+
+        ExitGames.Client.Photon.Hashtable expected = new ExitGames.Client.Photon.Hashtable();
+        expected.Add("Rank", playerRank);
+
+        PhotonNetwork.JoinRandomRoom(expected, 0);
+    }
+
+    public override void OnJoinRandomFailed(short returnCode, string message)
+    {
+        string playerRank = PlayerPrefs.GetString("PlayerRank", "Bronze");
+
+        ExitGames.Client.Photon.Hashtable roomProps = new ExitGames.Client.Photon.Hashtable();
+        roomProps.Add("Rank", playerRank);
+
+        RoomOptions options = new RoomOptions();
+        options.MaxPlayers = 2;
+        options.CustomRoomProperties = roomProps;
+        options.CustomRoomPropertiesForLobby = new string[] { "Rank" };
+
+        PhotonNetwork.CreateRoom("Room_" + Random.Range(0, 9999), options);
     }
 
     public void BackFromLoadPanel() 
