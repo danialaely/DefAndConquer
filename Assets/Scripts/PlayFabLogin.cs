@@ -20,6 +20,8 @@ public class PlayFabLogin : MonoBehaviour
 
     private int myXP = 0;
     private string myRank = "Bronze";
+    [SerializeField] private TMP_Text rankText;  // Drag your UI text here in Inspector
+    [SerializeField] private TMP_Text XPText;
 
     public void Start()
     {
@@ -113,6 +115,8 @@ public class PlayFabLogin : MonoBehaviour
             // ✔ Store for Photon to use later
             PlayerPrefs.SetInt("PlayerXP", myXP);
             PlayerPrefs.SetString("PlayerRank", myRank);
+            
+            UpdateUI();
         },
         err =>
         {
@@ -120,7 +124,18 @@ public class PlayFabLogin : MonoBehaviour
             myRank = "Bronze";
             PlayerPrefs.SetInt("PlayerXP", 0);
             PlayerPrefs.SetString("PlayerRank", "Bronze");
+            
+            UpdateUI();
         });
+    }
+
+    public void UpdateUI() 
+    {
+        // ✔ Update UI
+        rankText.text = myRank;
+        // Show XP progress out of 100
+        int xpProgress = myXP % 100;
+        XPText.text = $"XP: {xpProgress} / 100";
     }
 
     public void SetUsername()
