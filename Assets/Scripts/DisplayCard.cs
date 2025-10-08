@@ -15,7 +15,7 @@ using ExitGames.Client.Photon;
 public class DisplayCard : MonoBehaviourPunCallbacks, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, IOnEventCallback
 {
     public List<Card> display = new List<Card>();
-    //public List<Card> premium = new List<Card>();    For premium Deck
+    public List<Card> premium = new List<Card>();    //For premium Deck
     public int displayId;
     public int cardid;
 
@@ -84,6 +84,8 @@ public class DisplayCard : MonoBehaviourPunCallbacks, IBeginDragHandler, IDragHa
     //List<GameObject> cachedMovementAdjacentCards = new List<GameObject>();
     List<GameObject> tempMovementAdjacentCards = new List<GameObject>();
     public bool addToMovement;
+
+    public bool isPremiumActive;
 
     // Start is called before the first frame update
     void Start()
