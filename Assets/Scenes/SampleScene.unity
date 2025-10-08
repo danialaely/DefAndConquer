@@ -2633,6 +2633,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 103581794}
@@ -2668,6 +2669,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &103581799
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3701,6 +3703,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 110413684}
@@ -3736,6 +3739,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &110413691
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -5516,6 +5520,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 126919874}
@@ -5551,6 +5556,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &126919881
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -6829,6 +6835,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 137169808}
@@ -6864,6 +6871,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &137169813
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -9093,6 +9101,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 162252931}
@@ -9128,6 +9137,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &162252936
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -11344,6 +11354,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 221550779}
@@ -11379,6 +11390,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &221550786
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -15414,6 +15426,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 327460112}
@@ -15449,6 +15462,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &327460117
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -16929,6 +16943,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 369664177}
@@ -16964,6 +16979,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &369664182
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -20112,6 +20128,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 404767723}
@@ -20147,6 +20164,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &404767728
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -21015,6 +21033,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 413228676}
@@ -21050,6 +21069,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &413228685
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -22074,6 +22094,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 422209854}
@@ -22109,6 +22130,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &422209859
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -23792,6 +23814,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 437691601}
@@ -23827,6 +23850,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &437691606
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -28637,6 +28661,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 521585659}
@@ -28672,6 +28697,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &521585664
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -35847,6 +35873,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 696725872}
@@ -35882,6 +35909,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &696725877
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -36679,6 +36707,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 697075510}
@@ -36714,6 +36743,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &697075517
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -40116,6 +40146,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 736103376}
@@ -40151,6 +40182,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &736103385
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -49447,6 +49479,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 887216694}
@@ -49482,6 +49515,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &887216699
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -50652,6 +50686,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 903307100}
@@ -50687,6 +50722,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &903307105
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -51910,6 +51946,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 915578731}
@@ -51945,6 +51982,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &915578736
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -56466,6 +56504,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1033557553}
@@ -56501,6 +56540,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &1033557562
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -62139,6 +62179,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1174721812}
@@ -62174,6 +62215,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &1174721819
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -63919,6 +63961,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1214885547}
@@ -63954,6 +63997,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &1214885554
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -66141,6 +66185,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1275417418}
@@ -66176,6 +66221,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &1275417427
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -68265,6 +68311,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 868899180}
@@ -68300,6 +68347,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &1322447476
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -71982,6 +72030,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1365877943}
@@ -72017,6 +72066,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &1365877952
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -72832,8 +72882,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.6766357, y: -4.649811}
-  m_SizeDelta: {x: 2210.9824, y: 1007.9}
+  m_AnchoredPosition: {x: 0.035888672, y: -2.0089}
+  m_SizeDelta: {x: 3124.7222, y: 1456.8473}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1392402046
 MonoBehaviour:
@@ -76092,6 +76142,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1433556473}
@@ -76127,6 +76178,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &1433556482
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -78589,6 +78641,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1477093885}
@@ -78624,6 +78677,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &1477093894
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -83073,6 +83127,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1527229162}
@@ -83108,6 +83163,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &1527229171
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -84017,6 +84073,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1529615357}
@@ -84052,6 +84109,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &1529615366
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -85798,6 +85856,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1554088467}
@@ -85833,6 +85892,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &1554088472
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -86317,6 +86377,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 178532712}
@@ -86352,6 +86413,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &1559227098
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -93579,6 +93641,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1744196520}
@@ -93614,6 +93677,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &1744196529
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -97938,6 +98002,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1896393035}
@@ -97973,6 +98038,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &1896393044
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -100076,6 +100142,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1944174838}
@@ -100111,6 +100178,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &1944174847
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -101570,6 +101638,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1974909833}
@@ -101605,6 +101674,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &1974909842
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -102554,6 +102624,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1979539343}
@@ -102589,6 +102660,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &1979539352
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -104372,6 +104444,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 2024895039}
@@ -104407,6 +104480,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &2024895048
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -106536,6 +106610,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 2045142956}
@@ -106571,6 +106646,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &2045142965
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -107593,6 +107669,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 2059892635}
@@ -107628,6 +107705,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &2059892644
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -111426,6 +111504,7 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
+  premium: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 206386808268493628}
@@ -111461,6 +111540,7 @@ MonoBehaviour:
   p1AdjacentToP2: []
   selectedP1Cards: []
   addToMovement: 0
+  isPremiumActive: 0
 --- !u!225 &206386808268493637
 CanvasGroup:
   m_ObjectHideFlags: 0
