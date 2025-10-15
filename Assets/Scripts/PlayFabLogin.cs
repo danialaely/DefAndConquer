@@ -62,6 +62,9 @@ public class PlayFabLogin : MonoBehaviour
         Debug.Log("Successfully Loggedin with Android ID");
         LoadingPanel.SetActive(false);
         FetchXPAndRankFromPlayFab();
+
+        // Now safe to load profile picture
+        FindObjectOfType<ProfilePictureManager>()?.LoadProfilePictureFromPlayFab();
         //  GetPlayerDisplayName();
         //  GetLeaderboard();
         //LoadingPanel.SetActive(false);
