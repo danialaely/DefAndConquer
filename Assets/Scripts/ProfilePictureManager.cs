@@ -36,6 +36,11 @@ public class ProfilePictureManager : MonoBehaviour
        // LoadProfilePictureFromPlayFab();
     }
 
+    IEnumerator GetplayfabID(float del) 
+    {
+        yield return new WaitForSeconds(del);
+    }
+
     private void OnChangeProfileButtonClicked()
     {
 #if UNITY_ANDROID || UNITY_IOS
@@ -100,7 +105,8 @@ public class ProfilePictureManager : MonoBehaviour
             Data = new System.Collections.Generic.Dictionary<string, string>()
         {
             { PROFILE_PIC_KEY, base64String }
-        }
+        },
+            Permission = UserDataPermission.Public // 👈 THIS is the important line
         };
 
         bool isDone = false;
@@ -109,6 +115,11 @@ public class ProfilePictureManager : MonoBehaviour
         result =>
         {
             Debug.Log("✅ Profile picture uploaded successfully!");
+
+            // ✅ Save locally too, so we can instantly display it next time without re-downloading
+            PlayerPrefs.SetString("ProfilePic", base64String);
+            PlayerPrefs.Save();
+
             isDone = true;
         },
         error =>
@@ -122,32 +133,42 @@ public class ProfilePictureManager : MonoBehaviour
     }
 
 
-    public void LoadProfilePictureFromPlayFab()
-    {
-        ShowLoading(true);
+    public void LoadProfilePictureFromPlayFab(string playFabId = null)
+{
+    ShowLoading(true);
 
-        PlayFabClientAPI.GetUserData(new GetUserDataRequest(), result =>
+    var request = new GetUserDataRequest();
+
+    // 👇 If playFabId is provided, load that player's data. Otherwise, load your own.
+    if (!string.IsNullOrEmpty(playFabId))
+        request.PlayFabId = playFabId;
+
+    PlayFabClientAPI.GetUserData(request, result =>
+    {
+        ShowLoading(false);
+
+        if (result.Data != null && result.Data.ContainsKey(PROFILE_PIC_KEY))
         {
-            ShowLoading(false);
-            if (result.Data != null && result.Data.ContainsKey(PROFILE_PIC_KEY))
-            {
-                string base64String = result.Data[PROFILE_PIC_KEY].Value;
-                byte[] imageBytes = System.Convert.FromBase64String(base64String);
-                Texture2D texture = new Texture2D(2, 2);
-                texture.LoadImage(imageBytes);
-                profilePictureDisplay.texture = texture;
-            }
-            else
-            {
-                Debug.Log("No profile picture found in PlayFab.");
-            }
-        },
-        error =>
+            string base64String = result.Data[PROFILE_PIC_KEY].Value;
+            byte[] imageBytes = System.Convert.FromBase64String(base64String);
+            Texture2D texture = new Texture2D(2, 2);
+            texture.LoadImage(imageBytes);
+            profilePictureDisplay.texture = texture;
+
+            Debug.Log("✅ Loaded profile picture for PlayFabId: " + (playFabId ?? "Local Player"));
+        }
+        else
         {
-            ShowLoading(false);
-            Debug.LogError("Failed to load profile picture: " + error.GenerateErrorReport());
-        });
-    }
+            Debug.LogWarning("⚠️ No ProfilePic found for PlayFabId: " + (playFabId ?? "Local Player"));
+        }
+    },
+    error =>
+    {
+        ShowLoading(false);
+        Debug.LogError("❌ Failed to load profile picture: " + error.GenerateErrorReport());
+    });
+}
+
 
     private void ShowLoading(bool show)
     {

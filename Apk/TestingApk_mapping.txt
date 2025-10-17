@@ -3,8 +3,8 @@
 # min_api: 23
 # common_typos_disable
 # {"id":"com.android.tools.r8.mapping","version":"2.2"}
-# pg_map_id: 662f1fc
-# pg_map_hash: SHA-256 662f1fc0c72bf7c101976a80e2e0270c5ac6d8636ae174c660e113abcdf8a23a
+# pg_map_id: 515cff2
+# pg_map_hash: SHA-256 515cff2b5132084c533fbaad713b55ceb2d8cd9b3748966492cba66f6ce36b73
 android.app.AppComponentFactory -> android.app.AppComponentFactory:
 # {"id":"com.android.tools.r8.synthesized"}
 android.support.v4.graphics.drawable.IconCompatParcelizer -> android.support.v4.graphics.drawable.IconCompatParcelizer:
@@ -7259,6 +7259,40 @@ com.unity3d.player.z0 -> com.unity3d.player.z0:
     2:2:void a(java.lang.String):0:0 -> a
 com.unity3d.player.z1 -> com.unity3d.player.z1:
 # {"id":"sourceFile","fileName":"SourceFile"}
+com.yasirkula.unity.NativeFilePicker -> com.yasirkula.unity.NativeFilePicker:
+# {"id":"sourceFile","fileName":"NativeFilePicker.java"}
+com.yasirkula.unity.NativeFilePickerExportFragment -> com.yasirkula.unity.NativeFilePickerExportFragment:
+# {"id":"sourceFile","fileName":"NativeFilePickerExportFragment.java"}
+    1:1:void <init>():0:0 -> <init>
+    2:2:void <init>(com.yasirkula.unity.NativeFilePickerResultReceiver):0:0 -> <init>
+com.yasirkula.unity.NativeFilePickerPermissionFragment -> com.yasirkula.unity.NativeFilePickerPermissionFragment:
+# {"id":"sourceFile","fileName":"NativeFilePickerPermissionFragment.java"}
+    1:1:void <init>():0:0 -> <init>
+    2:2:void <init>(com.yasirkula.unity.NativeFilePickerPermissionReceiver):0:0 -> <init>
+com.yasirkula.unity.NativeFilePickerPermissionReceiver -> com.yasirkula.unity.NativeFilePickerPermissionReceiver:
+# {"id":"sourceFile","fileName":"NativeFilePickerPermissionReceiver.java"}
+com.yasirkula.unity.NativeFilePickerPickFragment -> com.yasirkula.unity.NativeFilePickerPickFragment:
+# {"id":"sourceFile","fileName":"NativeFilePickerPickFragment.java"}
+    1:1:void <init>():0:0 -> <init>
+    2:2:void <init>(com.yasirkula.unity.NativeFilePickerResultReceiver):0:0 -> <init>
+com.yasirkula.unity.NativeFilePickerPickResultFragment -> com.yasirkula.unity.NativeFilePickerPickResultFragment:
+# {"id":"sourceFile","fileName":"NativeFilePickerPickResultFragment.java"}
+    1:1:void <init>():0:0 -> <init>
+    2:2:void <init>(com.yasirkula.unity.NativeFilePickerPickResultOperation):0:0 -> <init>
+com.yasirkula.unity.NativeFilePickerPickResultFragment$1 -> com.yasirkula.unity.NativeFilePickerPickResultFragment$1:
+# {"id":"sourceFile","fileName":"NativeFilePickerPickResultFragment.java"}
+com.yasirkula.unity.NativeFilePickerPickResultFragment$2 -> com.yasirkula.unity.NativeFilePickerPickResultFragment$2:
+# {"id":"sourceFile","fileName":"NativeFilePickerPickResultFragment.java"}
+com.yasirkula.unity.NativeFilePickerPickResultFragment$3 -> com.yasirkula.unity.NativeFilePickerPickResultFragment$3:
+# {"id":"sourceFile","fileName":"NativeFilePickerPickResultFragment.java"}
+com.yasirkula.unity.NativeFilePickerPickResultOperation -> com.yasirkula.unity.NativeFilePickerPickResultOperation:
+# {"id":"sourceFile","fileName":"NativeFilePickerPickResultOperation.java"}
+com.yasirkula.unity.NativeFilePickerResultReceiver -> com.yasirkula.unity.NativeFilePickerResultReceiver:
+# {"id":"sourceFile","fileName":"NativeFilePickerResultReceiver.java"}
+com.yasirkula.unity.NativeFilePickerSAFEntry -> com.yasirkula.unity.NativeFilePickerSAFEntry:
+# {"id":"sourceFile","fileName":"NativeFilePickerSAFEntry.java"}
+com.yasirkula.unity.NativeFilePickerUtils -> com.yasirkula.unity.NativeFilePickerUtils:
+# {"id":"sourceFile","fileName":"NativeFilePickerUtils.java"}
 org.fmod.FMODAudioDevice -> org.fmod.FMODAudioDevice:
 # {"id":"sourceFile","fileName":"SourceFile"}
 org.fmod.FmodAndroidAudioManager -> org.fmod.FmodAndroidAudioManager:

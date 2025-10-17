@@ -1,5 +1,5 @@
-using Photon.Pun;
-using System.Collections;
+﻿using Photon.Pun;
+//using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,6 +7,11 @@ using ExitGames.Client.Photon;  // Add this line
 using Photon.Realtime;
 using UnityEngine.UI;
 using TMPro;
+using PlayFab.ClientModels;
+using PlayFab;
+using System;
+using System.Collections;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class networking : MonoBehaviourPunCallbacks
 {
@@ -64,6 +69,23 @@ public class networking : MonoBehaviourPunCallbacks
     public GameObject SHOPMHealth; //Master's Opponent Stronhold Health
     public GameObject SHOPMDefense; //Master's Opponent Stronhold Defense
 
+    public GameObject Player1Stats;
+    public GameObject Player2Stats;
+
+    [Header("🧍 Player 1 (Local Player) UI")]
+    [SerializeField] private RawImage profilePictureDisplay1;
+    [SerializeField] private TMP_Text rankText1;
+    [SerializeField] private TMP_Text MyName;
+
+    [Header("👥 Player 2 (Opponent) UI")]
+    [SerializeField] private RawImage profilePictureDisplay2;
+    [SerializeField] private TMP_Text rankText2;
+    [SerializeField] private TMP_Text opponentName;
+
+    private const string KEY_PROFILE_PIC = "ProfilePic";
+    private const string KEY_RANK = "Rank";
+    private const string KEY_XP = "XP";
+
     // Start is called before the first frame update
     void Start()
      {
@@ -98,6 +120,30 @@ public class networking : MonoBehaviourPunCallbacks
 
         Image MasterOPDefenseImg = SHOPMDefense.GetComponent<Image>();
         Color nCMOP = MasterOPHealthImg.color;
+
+        SendMyDataToNewPlayer();
+        Debug.Log("✅ Sent local player info to network.");
+        StartCoroutine(LoadDetails(2.0f));
+        if (PhotonNetwork.PlayerList.Length > 1)
+        {
+            Player opponent = PhotonNetwork.PlayerListOthers[0];
+            Debug.Log("Opponent Nickname"+ opponent.NickName);
+            opponentName.text = opponent.NickName;
+            MyName.text = PhotonNetwork.LocalPlayer.NickName;
+            if (opponent.CustomProperties.ContainsKey("PlayFabId"))
+            {
+                string opponentPlayFabId = opponent.CustomProperties["PlayFabId"].ToString();
+                Debug.Log("Opponent PlayFabId: " + opponentPlayFabId);
+
+                // ✅ Reference your ProfilePictureManager and call the updated method
+                FindObjectOfType<ProfilePictureManager>().LoadProfilePictureFromPlayFab(opponentPlayFabId);
+            }
+            else
+            {
+                Debug.LogWarning("⚠️ Opponent does not have PlayFabId property yet.");
+            }
+        }
+        // SendMyDataToNewPlayer()
 
         // Connect();
         if (PhotonNetwork.IsMasterClient)
@@ -147,6 +193,8 @@ public class networking : MonoBehaviourPunCallbacks
             turnBar2.transform.rotation = Quaternion.Euler(0, 0, 180);
             popupCard1.transform.rotation = Quaternion.Euler(0, 0, 180);
             popupCard2.transform.rotation = Quaternion.Euler(0, 0, 180);
+            Player1Stats.transform.rotation = Quaternion.Euler(0, 0, 180);
+            Player2Stats.transform.rotation = Quaternion.Euler(0, 0, 180);
 
             SHBottomRightImage.sprite = SHBRSprite; // Change the image
             SHBottomLeftImage.sprite = SHBLSprite; // Change the image
@@ -215,7 +263,130 @@ public class networking : MonoBehaviourPunCallbacks
        
      }
 
-   
+    //  public override void OnPlayerEnteredRoom(Player newPlayer)
+    //  {
+    //     Debug.Log("👥 Player joined: " + newPlayer.NickName);
+    //    SendMyDataToNewPlayer();
+    // }
+
+    IEnumerator LoadDetails(float del) 
+    {
+        yield return new WaitForSeconds(del);
+        Debug.Log("Networking initialized...");
+
+        // Load local player data (from PlayFab or PlayerPrefs)
+        string rank = PlayerPrefs.GetString("PlayerRank", "Bronze");
+        int xp = PlayerPrefs.GetInt("PlayerXP", 0);
+
+        // Load saved profile picture from PlayerPrefs (Base64)
+        string base64Image = PlayerPrefs.GetString(KEY_PROFILE_PIC, "");
+        Texture2D myTexture = null;
+        if (!string.IsNullOrEmpty(base64Image))
+        {
+            myTexture = DecodeBase64ToTexture(base64Image);
+            if (myTexture != null)
+                profilePictureDisplay1.texture = myTexture;
+        }
+
+        // Set my properties to send to others
+        var props = new Hashtable
+        {
+            { KEY_RANK, rank },
+            { KEY_XP, xp }
+        };
+
+        PhotonNetwork.LocalPlayer.SetCustomProperties(props);
+
+    }
+
+    private void LoadOpponentProfilePicture(string opponentPlayFabId)
+    {
+        Debug.Log("Loading opponent PlayFabId: " + opponentPlayFabId);
+
+        var request = new GetUserDataRequest
+        {
+            PlayFabId = opponentPlayFabId  // IMPORTANT: supply the id here
+        };
+
+        PlayFabClientAPI.GetUserData(request, result =>
+        {
+            if (result.Data != null && result.Data.ContainsKey("ProfilePic"))
+            {
+                string base64 = result.Data["ProfilePic"].Value;
+                if (!string.IsNullOrEmpty(base64))
+                {
+                    Texture2D tex = DecodeBase64ToTexture(base64);
+                    profilePictureDisplay2.texture = tex;
+                    Debug.Log("Opponent picture loaded");
+                }
+                else Debug.LogWarning("ProfilePic key present but value empty");
+            }
+            else
+            {
+                Debug.LogWarning("No ProfilePic found for PlayFabId: " + opponentPlayFabId);
+            }
+        }, error =>
+        {
+            Debug.LogError("GetUserData error: " + error.GenerateErrorReport());
+        });
+    }
+
+
+
+    private void SendMyDataToNewPlayer()
+    {
+        // Re-send local player data (redundancy for new joiners)
+        var props = new Hashtable
+        {
+            { KEY_RANK, PlayerPrefs.GetString("PlayerRank", "Bronze") },
+            { KEY_XP, PlayerPrefs.GetInt("PlayerXP", 0) } 
+        };
+
+        PhotonNetwork.LocalPlayer.SetCustomProperties(props);
+
+        // Load cached local profile picture
+        string base64 = PlayerPrefs.GetString(KEY_PROFILE_PIC, "");
+        if (!string.IsNullOrEmpty(base64))
+        {
+            Texture2D tex = DecodeBase64ToTexture(base64);
+            profilePictureDisplay1.texture = tex;
+        }
+    }
+
+    public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
+    {
+        Debug.Log($"🔄 Player properties updated: {targetPlayer.NickName}");
+
+        // Determine which UI to update
+        bool isLocal = targetPlayer == PhotonNetwork.LocalPlayer;
+
+        if (changedProps.ContainsKey(KEY_RANK))
+        {
+            string rank = changedProps[KEY_RANK]?.ToString() ?? "Bronze";
+            if (isLocal)
+                rankText1.text = rank;
+            else
+                rankText2.text = rank;
+        }
+
+       
+    }
+
+    private Texture2D DecodeBase64ToTexture(string base64)
+    {
+        try
+        {
+            byte[] imageBytes = Convert.FromBase64String(base64);
+            Texture2D tex = new Texture2D(2, 2);
+            tex.LoadImage(imageBytes);
+            return tex;
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("❌ Failed to decode texture: " + ex.Message);
+            return null;
+        }
+    }
 
     // Update is called once per frame
     /*   void Update()

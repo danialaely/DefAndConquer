@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
+using Photon.Pun;
 
 public class PlayFabLogin : MonoBehaviour
 {
@@ -60,9 +61,20 @@ public class PlayFabLogin : MonoBehaviour
     {
       //  FetchHighScoreFromPlayFab();
         Debug.Log("Successfully Loggedin with Android ID");
+        Debug.Log("✅ Logged into PlayFab. PlayFabId: " + result.PlayFabId);
+
+        // 👇 Keep nickname as user input (e.g., "David", "Mark")
+        // PhotonNetwork.NickName = playerName;  // (already done elsewhere)
+
+        // 👇 Store PlayFabId in Photon Custom Properties
+        ExitGames.Client.Photon.Hashtable playerData = new ExitGames.Client.Photon.Hashtable();
+        playerData["PlayFabId"] = result.PlayFabId;
+        PhotonNetwork.LocalPlayer.SetCustomProperties(playerData);
+
+        Debug.Log("PlayFabId stored in Photon custom properties.");
         LoadingPanel.SetActive(false);
         FetchXPAndRankFromPlayFab();
-
+        
         // Now safe to load profile picture
         FindObjectOfType<ProfilePictureManager>()?.LoadProfilePictureFromPlayFab();
         //  GetPlayerDisplayName();
@@ -86,6 +98,10 @@ public class PlayFabLogin : MonoBehaviour
                 PlayerPrefs.SetString("Username", currentUsername);
                 UpdateUsernameUI(currentUsername);
                 menuToggleManager.SetUserName(currentUsername);
+
+                // ✅ Add this line:
+                PhotonNetwork.NickName = currentUsername;
+                Debug.Log("Photon NickName synced to: " + PhotonNetwork.NickName);
             }
         }, error => Debug.LogError(error.GenerateErrorReport()));
 
