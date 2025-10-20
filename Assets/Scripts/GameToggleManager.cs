@@ -9,6 +9,10 @@ public class GameToggleManager : MonoBehaviour
     public Toggle MediumToggle;
     public Toggle HardToggle;
 
+    public Toggle BlueToggle;
+    public Toggle OrangeToggle;
+    public Toggle GreyToggle;
+
     void Start()
     {
         SetToggles();
@@ -19,5 +23,9 @@ public class GameToggleManager : MonoBehaviour
         EasyToggle.isOn = ToggleStateManager.EasyToggleOn;
         MediumToggle.isOn = ToggleStateManager.MediumToggleOn;
         HardToggle.isOn = ToggleStateManager.HardToggleOn;
+
+        BlueToggle.isOn = ToggleStateManager.BoardOneToggleOn;
+        OrangeToggle.isOn = ToggleStateManager.BoardTwoToggleOn;
+        GreyToggle.isOn = ToggleStateManager.BoardThreeToggleOn;
     }
 }

@@ -21,6 +21,9 @@ public class SceneM : MonoBehaviourPunCallbacks
     public GameObject BackPanel;
     public GameObject ProfilePanel;
     public GameObject StorePanel;
+    public GameObject GemPanel;
+    public GameObject BuyGemPanel;
+    public GameObject CustomizedBoardPanel;
 
     public GameObject SinglePlayerBtn;
     public GameObject MultiplayerBtn;
@@ -233,6 +236,16 @@ public class SceneM : MonoBehaviourPunCallbacks
         ActivateMyPanel(BackPanel.name);
     }
 
+    public void CustomBoard() 
+    {
+        ActivateMyPanel(CustomizedBoardPanel.name);
+    }
+
+    public void CurrencyCilck()
+    {
+        ActivateMyPanel(GemPanel.name);
+    }
+
     private void OnSfxSliderValueChanged(float val)
     {
         SFXVolume();
@@ -316,6 +329,9 @@ public class SceneM : MonoBehaviourPunCallbacks
         BackPanel.SetActive(panelName.Equals(BackPanel.name));
         StorePanel.SetActive(panelName.Equals(StorePanel.name));
         ProfilePanel.SetActive(panelName.Equals(ProfilePanel.name));
+        GemPanel.SetActive(panelName.Equals(GemPanel.name));
+        BuyGemPanel.SetActive(panelName.Equals(BuyGemPanel.name));
+        CustomizedBoardPanel.SetActive(panelName.Equals(CustomizedBoardPanel.name));
     }
 
     public void RoomJoinFromList(string roomName) 

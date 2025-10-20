@@ -21,11 +21,20 @@ public class MenuToggleManager : MonoBehaviour
     public GameObject MediumBlurr;
     public GameObject HardBlurr;
 
+    public GameObject BoardToggleGroup;
+    public Toggle firstBoardToggle;
+    public Toggle secondBoardToggle;
+    public Toggle thirdBoardToggle;
+
     void Start()
     {
         EasyToggle.onValueChanged.AddListener(delegate { ToggleValueChanged(); });
         MediumToggle.onValueChanged.AddListener(delegate { ToggleValueChanged(); });
         HardToggle.onValueChanged.AddListener(delegate { ToggleValueChanged(); });
+
+        firstBoardToggle.onValueChanged.AddListener(delegate { BoardToggleValueChanged(); });
+        secondBoardToggle.onValueChanged.AddListener(delegate { BoardToggleValueChanged(); });
+        thirdBoardToggle.onValueChanged.AddListener(delegate { BoardToggleValueChanged(); });
 
         if (AudioManager.instance.continuedFromGame)
         {
@@ -77,6 +86,36 @@ public class MenuToggleManager : MonoBehaviour
             MediumBlurr.SetActive(true);
             HardBlurr.SetActive(false);
         }
+    }
+
+    public void ActiveBoardToggle() 
+    {
+        if (firstBoardToggle.isOn)
+        {
+            Debug.Log("First Board");
+            ToggleStateManager.BoardOneToggleOn = true;
+            ToggleStateManager.BoardTwoToggleOn = false;
+            ToggleStateManager.BoardThreeToggleOn = false;
+        }
+        else if (secondBoardToggle.isOn) 
+        {
+            Debug.Log("Second Board");
+            ToggleStateManager.BoardOneToggleOn = false;
+            ToggleStateManager.BoardTwoToggleOn = true;
+            ToggleStateManager.BoardThreeToggleOn = false;
+        }
+        else if (thirdBoardToggle.isOn)
+        {
+            Debug.Log("Third Board");
+            ToggleStateManager.BoardOneToggleOn = false;
+            ToggleStateManager.BoardTwoToggleOn = false;
+            ToggleStateManager.BoardThreeToggleOn = true;
+        }
+    }
+
+    private void BoardToggleValueChanged() 
+    {
+        ActiveBoardToggle();
     }
 
     private void ToggleValueChanged()

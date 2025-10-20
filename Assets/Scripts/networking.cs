@@ -136,7 +136,8 @@ public class networking : MonoBehaviourPunCallbacks
                 Debug.Log("Opponent PlayFabId: " + opponentPlayFabId);
 
                 // ✅ Reference your ProfilePictureManager and call the updated method
-                FindObjectOfType<ProfilePictureManager>().LoadProfilePictureFromPlayFab(opponentPlayFabId);
+                //FindObjectOfType<ProfilePictureManager>().LoadProfilePictureFromPlayFab(opponentPlayFabId);
+                LoadOpponentProfilePicture(opponentPlayFabId);
             }
             else
             {
@@ -310,9 +311,9 @@ public class networking : MonoBehaviourPunCallbacks
 
         PlayFabClientAPI.GetUserData(request, result =>
         {
-            if (result.Data != null && result.Data.ContainsKey("ProfilePic"))
+            if (result.Data != null && result.Data.ContainsKey("ProfilePicture"))
             {
-                string base64 = result.Data["ProfilePic"].Value;
+                string base64 = result.Data["ProfilePicture"].Value;
                 if (!string.IsNullOrEmpty(base64))
                 {
                     Texture2D tex = DecodeBase64ToTexture(base64);
@@ -323,7 +324,7 @@ public class networking : MonoBehaviourPunCallbacks
             }
             else
             {
-                Debug.LogWarning("No ProfilePic found for PlayFabId: " + opponentPlayFabId);
+                Debug.LogWarning("ProfilePic not found for PlayFabId: " + opponentPlayFabId);
             }
         }, error =>
         {

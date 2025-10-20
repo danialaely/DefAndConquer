@@ -94,6 +94,16 @@ public class ButtonTurn : MonoBehaviourPunCallbacks, IOnEventCallback
     public Sprite mediumArenaImg;
     public Sprite hardArenaImg;
 
+    public Image[] firstSlots;
+    public Image[] secondSlots;
+
+    public Sprite DarkBlueImg;
+    public Sprite LighBlueImg;
+    public Sprite DarkBrownImg;
+    public Sprite LighBrownImg;
+    public Sprite DarkGreyImg;
+    public Sprite LighGreyImg;
+
     public bool secondAttackCheck;
 
     IEnumerator changebgImag(float del) 
@@ -119,6 +129,46 @@ public class ButtonTurn : MonoBehaviourPunCallbacks, IOnEventCallback
             {
                 Debug.Log("Set Medium Image");
                 ArenaBackground.sprite = mediumArenaImg;
+            }
+
+            if (gameToggleManager.BlueToggle.isOn)
+            {
+                Debug.Log("Blue Board Theme");
+                foreach (Image i in firstSlots) 
+                {
+                    i.sprite = LighBlueImg;
+                }
+
+                foreach (Image i in secondSlots)
+                {
+                    i.sprite = DarkBlueImg;
+                }
+            }
+            else if (gameToggleManager.OrangeToggle.isOn) 
+            {
+                Debug.Log("Orange Board Theme");
+                foreach (Image i in firstSlots)
+                {
+                    i.sprite = LighBrownImg;
+                }
+
+                foreach (Image i in secondSlots)
+                {
+                    i.sprite = DarkBrownImg;
+                }
+            }
+            else if (gameToggleManager.GreyToggle.isOn)
+            {
+                Debug.Log("Grey Board Theme");
+                foreach (Image i in firstSlots)
+                {
+                    i.sprite = DarkGreyImg;
+                }
+
+                foreach (Image i in secondSlots)
+                {
+                    i.sprite = LighGreyImg;
+                }
             }
 
         }
