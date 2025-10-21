@@ -8,7 +8,7 @@ using ImageCropperNamespace;
 
 public class ProfilePictureManager : MonoBehaviour
 {
-    public static ProfilePictureManager Instance { get; private set; }
+   // public static ProfilePictureManager Instance { get; private set; }
 
     [Header("UI References")]
     [SerializeField] private RawImage profilePictureDisplay;
@@ -20,20 +20,20 @@ public class ProfilePictureManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
+     //   if (Instance != null && Instance != this)
+      //  {
+        //    Destroy(gameObject);
+          //  return;
+  //      }
 
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
+    //    Instance = this;
+      //  DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
     {
         changeProfileButton.onClick.AddListener(OnChangeProfileButtonClicked);
-       // LoadProfilePictureFromPlayFab();
+        // LoadProfilePictureFromPlayFab();
     }
 
     IEnumerator GetplayfabID(float del) 
@@ -91,7 +91,7 @@ public class ProfilePictureManager : MonoBehaviour
 
     private IEnumerator UploadProfilePictureToPlayFab(Texture2D texture)
     {
-        ShowLoading(true);
+        //ShowLoading(true);
 
         // ✅ Make sure texture is readable before encoding
         Texture2D readableTexture = MakeTextureReadable(texture);
@@ -135,7 +135,7 @@ public class ProfilePictureManager : MonoBehaviour
 
     public void LoadProfilePictureFromPlayFab(string playFabId = null)
 {
-    ShowLoading(true);
+    //ShowLoading(true);
 
     var request = new GetUserDataRequest();
 

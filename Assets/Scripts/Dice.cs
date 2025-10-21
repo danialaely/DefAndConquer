@@ -426,6 +426,8 @@ public class Dice : MonoBehaviourPunCallbacks
                                 PlayerStats.AddPointsToPlayer(p1, +20);
                                 PlayerStats.AddPointsToPlayer(p2, -20);
 
+                                EndMatch();
+
                                 //discaranimator.SetBool("isDiscard", true);
                                 // Transform discarcard = defenderCard.transform;
                                 //  discarcard.SetParent(discardpile.transform);
@@ -628,6 +630,8 @@ public class Dice : MonoBehaviourPunCallbacks
 
                                 PlayerStats.AddPointsToPlayer(p1, -20);
                                 PlayerStats.AddPointsToPlayer(p2, +20);
+
+                                EndMatch();
                                 // Debug.Log("Discard Value:" +defcard.GetDiscard());
                                 // Destroy(defcard.gameObject);
                                 // animator2.SetBool("isDiscarded", true);
@@ -646,6 +650,28 @@ public class Dice : MonoBehaviourPunCallbacks
 
                 StartCoroutine(DiscardAnim2(2.0f));
             }
+    }
+
+    public void EndMatch()
+    {
+        StartCoroutine(EndMatchRoutine());
+    }
+
+    private IEnumerator EndMatchRoutine()
+    {
+        // Optional: small delay for result screen
+        yield return new WaitForSeconds(2f);
+
+        // Leave Photon room
+        if (PhotonNetwork.InRoom)
+            PhotonNetwork.LeaveRoom();
+
+        // Wait until fully left room
+        while (PhotonNetwork.InRoom)
+            yield return null;
+
+        // Load Welcome scene
+        SceneManager.LoadScene("Welcome");
     }
 
     public void DiceSound() 

@@ -23,6 +23,8 @@ public class SceneM : MonoBehaviourPunCallbacks
     public GameObject StorePanel;
     public GameObject GemPanel;
     public GameObject BuyGemPanel;
+    public GameObject GemInnerPanel;
+    public GameObject CoinInnerPanel;
     public GameObject CustomizedBoardPanel;
 
     public GameObject SinglePlayerBtn;
@@ -66,6 +68,11 @@ public class SceneM : MonoBehaviourPunCallbacks
         Toggles.gameObject.SetActive(false);
         TogglePlayBtn.gameObject.SetActive(false);  
         BackFromLoadBtn.gameObject.SetActive(false);
+
+        if (PhotonNetwork.IsConnected && !PhotonNetwork.InLobby)
+        {
+            PhotonNetwork.JoinLobby();
+        }
     }
     private void Update()
     {
@@ -244,6 +251,22 @@ public class SceneM : MonoBehaviourPunCallbacks
     public void CurrencyCilck()
     {
         ActivateMyPanel(GemPanel.name);
+        if (!GemInnerPanel.activeSelf) 
+        {
+            GemInnerPanel.SetActive(true);
+        }
+        CoinInnerPanel.SetActive(false);
+    }
+
+    public void DollarClick() 
+    {
+        ActivateMyPanel(GemPanel.name);
+        if (!CoinInnerPanel.activeSelf) 
+        {
+            CoinInnerPanel.SetActive(true);
+        }
+        GemInnerPanel.SetActive(false);
+
     }
 
     private void OnSfxSliderValueChanged(float val)
