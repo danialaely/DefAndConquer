@@ -414,8 +414,9 @@ public class Dice : MonoBehaviourPunCallbacks
 
                             CanAttackP1 = false;
                             StartCoroutine(CanAttackNowP1(10.0f));
+                            Debug.Log("Health of SHCardP2:"+StrongholdCardP2.GetCardHealth());
 
-                            if (StrongholdCardP2.GetCardHealth() <=0 ) 
+                            if (newHealth <=0 ) 
                             {
                                 Debug.Log("GAME OVER!, P1 Wins");
 

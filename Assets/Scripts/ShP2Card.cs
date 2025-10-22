@@ -14,7 +14,7 @@ public class ShP2Card : MonoBehaviour , IPointerClickHandler
     public Image crdImg;
 
     private int defense = 5;
-    public  int health = 100;
+    private  int health = 1;
 
     public bool isSelected = false;
 

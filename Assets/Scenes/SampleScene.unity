@@ -40508,6 +40508,14 @@ MonoBehaviour:
   easyArenaImg: {fileID: 0}
   mediumArenaImg: {fileID: 0}
   hardArenaImg: {fileID: 0}
+  firstSlots: []
+  secondSlots: []
+  DarkBlueImg: {fileID: 0}
+  LighBlueImg: {fileID: 0}
+  DarkBrownImg: {fileID: 0}
+  LighBrownImg: {fileID: 0}
+  DarkGreyImg: {fileID: 0}
+  LighGreyImg: {fileID: 0}
   secondAttackCheck: 0
 --- !u!4 &733181124
 Transform:
@@ -82469,7 +82477,7 @@ MonoBehaviour:
   healthText: {fileID: 115653374}
   outerBorder: {fileID: 1108746097}
   crdImg: {fileID: 1223021570}
-  health: 100
+  health: 1
   isSelected: 0
   tagToSearch: Player1
   dice1: {fileID: 2029075385}
@@ -98749,7 +98757,7 @@ MonoBehaviour:
   healthText: {fileID: 418329613}
   outerBorder: {fileID: 1132337981}
   crdImg: {fileID: 1701956523}
-  health: 100
+  health: 1
   isSelected: 0
   tagToSearch: Player1
   dice1: {fileID: 2029075385}
@@ -103241,7 +103249,7 @@ MonoBehaviour:
   healthText: {fileID: 965339064}
   outerBorder: {fileID: 1133571860}
   crdImg: {fileID: 1758911320}
-  health: 100
+  health: 1
   isSelected: 0
   tagToSearch: Player1
   dice1: {fileID: 2029075385}
@@ -108143,7 +108151,7 @@ MonoBehaviour:
   healthText: {fileID: 1936079785}
   outerBorder: {fileID: 498189432}
   crdImg: {fileID: 1827283039}
-  health: 100
+  health: 1
   isSelected: 0
   tagToSearch: Player1
   dice1: {fileID: 2029075385}
