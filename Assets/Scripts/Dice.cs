@@ -1,4 +1,4 @@
-using Photon.Pun;
+﻿using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Photon.Realtime;
 using static UnityEngine.GraphicsBuffer;
+using ExitGames.Client.Photon;
+using System;
 
 public class Dice : MonoBehaviourPunCallbacks
 {
@@ -53,13 +55,32 @@ public class Dice : MonoBehaviourPunCallbacks
 
     public TMP_Text AtcFailedTxt;
 
-  //  public TMP_Text SHoldHealthP1;
-  //  float healthValStP1;
-   
-  //  public TMP_Text SHoldHealthP2;
-  //  float healthValStP2;
+    // Game over event
+    private const byte GAME_OVER_EVENT = 17;
+
+    // Guard to avoid sending/handling game over multiple times
+    private bool gameOverSent = false;
+    private bool gameOverHandled = false;
+
+
+    //  public TMP_Text SHoldHealthP1;
+    //  float healthValStP1;
+
+    //  public TMP_Text SHoldHealthP2;
+    //  float healthValStP2;
 
     // Use this for initialization
+
+    private void OnEnable()
+    {
+        PhotonNetwork.NetworkingClient.EventReceived += OnEventReceived;
+    }
+
+    private void OnDisable()
+    {
+        PhotonNetwork.NetworkingClient.EventReceived -= OnEventReceived;
+    }
+
     private void Start()
     {
 
@@ -82,6 +103,7 @@ public class Dice : MonoBehaviourPunCallbacks
         CounterAttackinP1 = false;
         CounterAttackinP2 = false;
         AtcFailedTxt.gameObject.SetActive(false);
+
       //  healthValStP1 = 100.0f;
       //  SHoldHealthP1.text = healthValStP1.ToString();
 
@@ -130,7 +152,7 @@ public class Dice : MonoBehaviourPunCallbacks
         for (int i = 0; i <= 20; i++)
         {
             // Pick up random value from 0 to 5 (All inclusive)
-            randomDiceSide = Random.Range(0, 5);
+            randomDiceSide = UnityEngine.Random.Range(0, 5);
 
             // Set sprite to upper face of dice from array according to random value
             image.sprite = diceSides[randomDiceSide];
@@ -161,7 +183,7 @@ public class Dice : MonoBehaviourPunCallbacks
         for (int i = 0; i <= 20; i++)
         {
             // Pick up random value from 0 to 5 (All inclusive)
-            randomDiceSide2 = Random.Range(0, 5);
+            randomDiceSide2 = UnityEngine.Random.Range(0, 5);
 
             // Set sprite to upper face of dice from array according to random value
             otherdice.sprite = diceSides[randomDiceSide2];
@@ -423,11 +445,14 @@ public class Dice : MonoBehaviourPunCallbacks
                                 Player p1 = PhotonNetwork.CurrentRoom.GetPlayer(1);
                                 Player p2 = PhotonNetwork.CurrentRoom.GetPlayer(2);
 
-                                // +20 to P1, �20 to P2
+                                // +20 to P1, –20 to P2
                                 PlayerStats.AddPointsToPlayer(p1, +20);
                                 PlayerStats.AddPointsToPlayer(p2, -20);
 
-                                EndMatch();
+                                // award points (already done)
+                                int winnerActor = PhotonNetwork.LocalPlayer.ActorNumber;
+                                SendGameOverEvent(winnerActor);
+                                //EndMatch();
 
                                 //discaranimator.SetBool("isDiscard", true);
                                 // Transform discarcard = defenderCard.transform;
@@ -632,7 +657,10 @@ public class Dice : MonoBehaviourPunCallbacks
                                 PlayerStats.AddPointsToPlayer(p1, -20);
                                 PlayerStats.AddPointsToPlayer(p2, +20);
 
-                                EndMatch();
+                                // award points (already done)
+                                int winnerActor = PhotonNetwork.LocalPlayer.ActorNumber;
+                                SendGameOverEvent(winnerActor);
+                                //EndMatch();
                                 // Debug.Log("Discard Value:" +defcard.GetDiscard());
                                 // Destroy(defcard.gameObject);
                                 // animator2.SetBool("isDiscarded", true);
@@ -674,6 +702,71 @@ public class Dice : MonoBehaviourPunCallbacks
         // Load Welcome scene
         SceneManager.LoadScene("Welcome");
     }
+
+    private void SendGameOverEvent(int winnerActor)
+    {
+        if (gameOverSent) return;
+        gameOverSent = true;
+
+        object[] content = new object[] { winnerActor }; // winner actor number
+        RaiseEventOptions options = new RaiseEventOptions { Receivers = ReceiverGroup.All };
+        SendOptions sendOptions = new SendOptions { Reliability = true };
+
+        PhotonNetwork.RaiseEvent(GAME_OVER_EVENT, content, options, sendOptions);
+    }
+
+    private void OnEventReceived(EventData photonEvent)
+    {
+        if (photonEvent.Code != GAME_OVER_EVENT) return;
+
+        if (gameOverHandled) return; // already handled
+
+        object[] data = photonEvent.CustomData as object[];
+        if (data == null || data.Length < 1) return;
+
+        int winnerActor = Convert.ToInt32(data[0]);
+
+        // Prevent multiple concurrent handling
+        gameOverHandled = true;
+
+        bool amIWinner = (PhotonNetwork.LocalPlayer.ActorNumber == winnerActor);
+        StartCoroutine(HandleGameOver(amIWinner));
+    }
+
+    private IEnumerator HandleGameOver(bool amIWinner)
+    {
+        // ✅ Show result UI (replace with your panels / animations)
+        if (amIWinner)
+        {
+            Debug.Log("🎉 You won!");
+            // Show win UI here
+        }
+        else
+        {
+            Debug.Log("💀 You lost!");
+            // Show lose UI here
+        }
+
+        // ✅ Optional delay to let players see results
+        yield return new WaitForSeconds(2f);
+
+        // ✅ Disconnect from Photon completely for a clean reset
+        if (PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.Disconnect();
+            Debug.Log("🔌 Disconnecting from Photon...");
+        }
+
+        // ✅ Wait until fully disconnected
+        while (PhotonNetwork.IsConnected)
+            yield return null;
+
+        Debug.Log("✅ Disconnected! Returning to Welcome scene...");
+
+        // ✅ Load the Welcome scene after disconnect
+        SceneManager.LoadScene("Welcome");
+    }
+
 
     public void DiceSound() 
     {
