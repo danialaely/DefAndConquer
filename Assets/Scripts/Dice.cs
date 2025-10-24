@@ -9,6 +9,7 @@ using Photon.Realtime;
 using static UnityEngine.GraphicsBuffer;
 using ExitGames.Client.Photon;
 using System;
+using PlayFab;
 
 public class Dice : MonoBehaviourPunCallbacks
 {
@@ -657,6 +658,14 @@ public class Dice : MonoBehaviourPunCallbacks
                                 PlayerStats.AddPointsToPlayer(p1, -20);
                                 PlayerStats.AddPointsToPlayer(p2, +20);
 
+                                // If this device corresponds to the winning player, save to PlayFab
+                                if (PhotonNetwork.LocalPlayer == p2)
+                                {
+                                    int xp = (int)p2.CustomProperties[PlayerStats.KEY_POINTS];
+                                    string rank = (string)p2.CustomProperties[PlayerStats.KEY_RANK];
+                                    SaveXPAndRankToPlayFab(xp, rank);
+                                }
+
                                 // award points (already done)
                                 int winnerActor = PhotonNetwork.LocalPlayer.ActorNumber;
                                 SendGameOverEvent(winnerActor);
@@ -765,6 +774,22 @@ public class Dice : MonoBehaviourPunCallbacks
 
         // ✅ Load the Welcome scene after disconnect
         SceneManager.LoadScene("Welcome");
+    }
+
+    private void SaveXPAndRankToPlayFab(int xp, string rank)
+    {
+        var request = new PlayFab.ClientModels.UpdateUserDataRequest
+        {
+            Data = new System.Collections.Generic.Dictionary<string, string>
+        {
+            { "xp", xp.ToString() },
+            { "rank", rank }
+        }
+        };
+
+        PlayFabClientAPI.UpdateUserData(request,
+            result => Debug.Log("✅ XP and Rank saved to PlayFab."),
+            error => Debug.LogError("❌ Failed to save XP/Rank: " + error.GenerateErrorReport()));
     }
 
 
