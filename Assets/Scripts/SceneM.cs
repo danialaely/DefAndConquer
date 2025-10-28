@@ -421,6 +421,7 @@ public class SceneM : MonoBehaviourPunCallbacks
     {
         Debug.Log(PhotonNetwork.LocalPlayer.NickName+" joined the room");
         ActivateMyPanel(InsideRoomPanel.name);
+        PlayerStats.InitializeLocalPlayer();
 
         if (playerListGameobject == null) 
         {

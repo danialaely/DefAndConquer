@@ -443,12 +443,20 @@ public class Dice : MonoBehaviourPunCallbacks
                             {
                                 Debug.Log("GAME OVER!, P1 Wins");
 
-                                Player p1 = PhotonNetwork.CurrentRoom.GetPlayer(1);
-                                Player p2 = PhotonNetwork.CurrentRoom.GetPlayer(2);
+                                Player p1 = PhotonNetwork.MasterClient;
+                                Player p2 = PhotonNetwork.PlayerListOthers[0];
 
                                 // +20 to P1, –20 to P2
                                 PlayerStats.AddPointsToPlayer(p1, +20);
                                 PlayerStats.AddPointsToPlayer(p2, -20);
+
+                                // If this device corresponds to the winning player, save to PlayFab
+                                if (PhotonNetwork.LocalPlayer == p1)
+                                {
+                                    int xp = (int)p1.CustomProperties[PlayerStats.KEY_POINTS];
+                                    string rank = (string)p1.CustomProperties[PlayerStats.KEY_RANK];
+                                    SaveXPAndRankToPlayFab(xp, rank);
+                                }
 
                                 // award points (already done)
                                 int winnerActor = PhotonNetwork.LocalPlayer.ActorNumber;
@@ -652,8 +660,8 @@ public class Dice : MonoBehaviourPunCallbacks
                         {
                             Debug.Log("GAME OVER, P2 WINS");
 
-                                Player p1 = PhotonNetwork.CurrentRoom.GetPlayer(1);
-                                Player p2 = PhotonNetwork.CurrentRoom.GetPlayer(2);
+                                Player p1 = PhotonNetwork.MasterClient;
+                                Player p2 = PhotonNetwork.PlayerListOthers[0];
 
                                 PlayerStats.AddPointsToPlayer(p1, -20);
                                 PlayerStats.AddPointsToPlayer(p2, +20);
