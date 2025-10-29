@@ -447,14 +447,15 @@ public class Dice : MonoBehaviourPunCallbacks
                                 Player p2 = PhotonNetwork.PlayerListOthers[0];
 
                                 // +20 to P1, –20 to P2
-                                PlayerStats.AddPointsToPlayer(p1, +20);
+                                //PlayerStats.AddPointsToPlayer(p1, +20);
+                                var (xp, rank) = PlayerStats.AddPointsToPlayer(p1, +20);
                                 PlayerStats.AddPointsToPlayer(p2, -20);
 
                                 // If this device corresponds to the winning player, save to PlayFab
                                 if (PhotonNetwork.LocalPlayer == p1)
                                 {
-                                    int xp = (int)p1.CustomProperties[PlayerStats.KEY_POINTS];
-                                    string rank = (string)p1.CustomProperties[PlayerStats.KEY_RANK];
+                                   // int xp = (int)p1.CustomProperties[PlayerStats.KEY_POINTS];
+                                   // string rank = (string)p1.CustomProperties[PlayerStats.KEY_RANK];
                                     SaveXPAndRankToPlayFab(xp, rank);
                                 }
 

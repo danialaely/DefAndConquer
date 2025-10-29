@@ -25,7 +25,7 @@ public static class PlayerStats
     }
 
     // MasterClient (or whoever is authoritative) calls this to add/subtract points.
-    public static void AddPointsToPlayer(Player player, int delta)
+    public static (int updatedXP, string newRank) AddPointsToPlayer(Player player, int delta)
     {
         int current = 0;
         if (player.CustomProperties.ContainsKey(KEY_POINTS))
@@ -35,12 +35,15 @@ public static class PlayerStats
         string newRank = DetermineRank(updated);
 
         var newProps = new Hashtable
-        {
-            { KEY_POINTS, updated },
-            { KEY_RANK,   newRank }
-        };
+    {
+        { KEY_POINTS, updated },
+        { KEY_RANK, newRank }
+    };
         player.SetCustomProperties(newProps);
+
+        return (updated, newRank);
     }
+
 
     // Maps 0–500 → rank string
     public static string DetermineRank(int points)
