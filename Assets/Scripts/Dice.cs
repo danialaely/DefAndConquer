@@ -448,15 +448,19 @@ public class Dice : MonoBehaviourPunCallbacks
 
                                 // +20 to P1, –20 to P2
                                 //PlayerStats.AddPointsToPlayer(p1, +20);
-                                var (xp, rank) = PlayerStats.AddPointsToPlayer(p1, +20);
-                                PlayerStats.AddPointsToPlayer(p2, -20);
+                                var (p1XP, p1Rank) = PlayerStats.AddPointsToPlayer(p1, +20);
+                                var (p2XP, p2Rank) = PlayerStats.AddPointsToPlayer(p2, -20);
 
                                 // If this device corresponds to the winning player, save to PlayFab
                                 if (PhotonNetwork.LocalPlayer == p1)
                                 {
-                                   // int xp = (int)p1.CustomProperties[PlayerStats.KEY_POINTS];
-                                   // string rank = (string)p1.CustomProperties[PlayerStats.KEY_RANK];
-                                    SaveXPAndRankToPlayFab(xp, rank);
+                                    // int xp = (int)p1.CustomProperties[PlayerStats.KEY_POINTS];
+                                    // string rank = (string)p1.CustomProperties[PlayerStats.KEY_RANK];
+                                    SaveXPAndRankToPlayFab(p1XP, p1Rank); // Winner’s PlayFab update
+                                }
+                                else if (PhotonNetwork.LocalPlayer == p2)
+                                {
+                                    SaveXPAndRankToPlayFab(p2XP, p2Rank); // Loser’s PlayFab update
                                 }
 
                                 // award points (already done)
@@ -762,6 +766,9 @@ public class Dice : MonoBehaviourPunCallbacks
         else
         {
             Debug.Log("💀 You lost!");
+            Player p2 = PhotonNetwork.PlayerListOthers[0];
+            var (p2XP, p2Rank) = PlayerStats.AddPointsToPlayer(p2, -20);
+            SaveXPAndRankToPlayFab(p2XP, p2Rank); // Loser’s PlayFab update
             // Show lose UI here
         }
 
