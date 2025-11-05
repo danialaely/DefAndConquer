@@ -806,6 +806,23 @@ public class Dice : MonoBehaviourPunCallbacks
         PlayFabClientAPI.UpdateUserData(request,
             result => Debug.Log("✅ XP and Rank saved to PlayFab."),
             error => Debug.LogError("❌ Failed to save XP/Rank: " + error.GenerateErrorReport()));
+
+        // 👇 ADD THIS — so leaderboard uses this XP as statistic
+        var statRequest = new PlayFab.ClientModels.UpdatePlayerStatisticsRequest
+        {
+            Statistics = new List<PlayFab.ClientModels.StatisticUpdate>
+        {
+            new PlayFab.ClientModels.StatisticUpdate
+            {
+                StatisticName = "XP", // leaderboard name
+                Value = xp
+            }
+        }
+        };
+
+        PlayFabClientAPI.UpdatePlayerStatistics(statRequest,
+            result => Debug.Log("✅ XP updated in PlayFab Leaderboard."),
+            error => Debug.LogError("❌ Failed to update leaderboard XP: " + error.GenerateErrorReport()));
     }
 
 
