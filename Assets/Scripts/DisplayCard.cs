@@ -15,7 +15,8 @@ using ExitGames.Client.Photon;
 public class DisplayCard : MonoBehaviourPunCallbacks, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, IOnEventCallback
 {
     public List<Card> display = new List<Card>();
-    public List<Card> premium = new List<Card>();    //For premium Deck
+    public List<Card> premiumPack = new List<Card>();    //For premium Deck bough from 2000 coins
+    public List<Card> goldPack = new List<Card>();    //For premium Deck bough from 500 Gems
     public int displayId;
     public int cardid;
 
