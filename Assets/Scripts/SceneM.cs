@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using Photon.Realtime;
 using UnityEngine.UI;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class SceneM : MonoBehaviourPunCallbacks
 {
@@ -26,6 +27,8 @@ public class SceneM : MonoBehaviourPunCallbacks
     public GameObject GemInnerPanel;
     public GameObject CoinInnerPanel;
     public GameObject CustomizedBoardPanel;
+    public GameObject DeckPanel;
+    public GameObject LeaderBoardPanel;
 
     public GameObject SinglePlayerBtn;
     public GameObject MultiplayerBtn;
@@ -248,6 +251,16 @@ public class SceneM : MonoBehaviourPunCallbacks
         ActivateMyPanel(CustomizedBoardPanel.name);
     }
 
+    public void ActivateDeckPanel() 
+    {
+        ActivateMyPanel(DeckPanel.name);
+    }
+
+    public void ActivateLbPanel() 
+    {
+        ActivateMyPanel(LeaderBoardPanel.name);
+    }
+
     public void CurrencyCilck()
     {
         ActivateMyPanel(GemPanel.name);
@@ -355,6 +368,8 @@ public class SceneM : MonoBehaviourPunCallbacks
         GemPanel.SetActive(panelName.Equals(GemPanel.name));
         BuyGemPanel.SetActive(panelName.Equals(BuyGemPanel.name));
         CustomizedBoardPanel.SetActive(panelName.Equals(CustomizedBoardPanel.name));
+        DeckPanel.SetActive(panelName.Equals(DeckPanel.name));
+        LeaderBoardPanel.SetActive(panelName.Equals(LeaderBoardPanel.name));
     }
 
     public void RoomJoinFromList(string roomName) 

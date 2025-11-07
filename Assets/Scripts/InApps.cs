@@ -69,12 +69,18 @@ public class InApps : MonoBehaviour
 
     void InitializeDecks()
     {
+        int coins = PlayerPrefs.GetInt("Coins", 0);
+        int gems = PlayerPrefs.GetInt("Gems", 0);
+
         for (int i = 0; i < deckToggles.Length; i++)
         {
-            // Deck 0 always unlocked (starter)
             bool unlocked = PlayerPrefs.GetInt($"Deck{i}_Unlocked", i == 0 ? 1 : 0) == 1;
 
-            deckToggles[i].interactable = unlocked;
+            bool canAfford =
+                (!unlocked && coinCost[i] > 0 && coins >= coinCost[i]) ||
+                (!unlocked && gemCost[i] > 0 && gems >= gemCost[i]);
+
+            deckToggles[i].interactable = unlocked || canAfford;
             deckToggles[i].isOn = PlayerPrefs.GetInt("SelectedDeck", 0) == i;
         }
     }

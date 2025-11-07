@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -134,8 +134,36 @@ public class DisplayCard : MonoBehaviourPunCallbacks, IBeginDragHandler, IDragHa
         Scene cs = SceneManager.GetActiveScene();
         if (cs.name == "AI") 
         {
-        Card card = display.Find(c => c.cardId == displayId);  // if Default Deck is Active
-                                                               //Card card = premium.Find(c => c.cardId == displayId)  if Premium Deck is Active
+            // 🧩 Read selected deck from PlayerPrefs (default 0)
+            int selectedDeck = PlayerPrefs.GetInt("SelectedDeck", 0);
+            Debug.Log("Selected Deck:"+selectedDeck);
+
+            // Card card = display.Find(c => c.cardId == displayId);  // if Default Deck is Active
+            //Card card = premiumPack.Find(c => c.cardId == displayId)  if Premium Deck is Active
+            //Card card = goldPack.Find(c => c.cardId == displayId)  if Premium Deck is Active
+
+            Card card = null;
+
+            // 🧠 Choose deck based on selected index
+            switch (selectedDeck)
+            {
+                case 0:
+                    card = display.Find(c => c.cardId == displayId);
+                    break;
+
+                case 1:
+                    card = premiumPack.Find(c => c.cardId == displayId);
+                    break;
+
+                case 2:
+                    card = goldPack.Find(c => c.cardId == displayId);
+                    break;
+
+                default:
+                    card = display.Find(c => c.cardId == displayId);
+                    break;
+            }
+
             if (card != null)
         {
             nameText.text = card.cardName;

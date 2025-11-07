@@ -2649,7 +2649,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 103581794}
@@ -3735,7 +3736,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 110413684}
@@ -5568,7 +5570,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 126919874}
@@ -6899,7 +6902,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 137169808}
@@ -9197,7 +9201,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 162252931}
@@ -11466,7 +11471,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 221550779}
@@ -15661,7 +15667,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 327460112}
@@ -17330,7 +17337,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 369664177}
@@ -20699,7 +20707,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 404767723}
@@ -21620,7 +21629,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 413228676}
@@ -22697,7 +22707,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 422209854}
@@ -24449,7 +24460,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 437691601}
@@ -29480,7 +29492,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 521585659}
@@ -37109,7 +37122,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 696725872}
@@ -37959,7 +37973,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 697075510}
@@ -41454,7 +41469,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 736103376}
@@ -51050,7 +51066,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 887216694}
@@ -52281,7 +52298,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 903307100}
@@ -53557,7 +53575,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 915578731}
@@ -58269,7 +58288,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1033557553}
@@ -64073,7 +64093,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1174721812}
@@ -65887,7 +65908,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1214885547}
@@ -68339,7 +68361,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1275417418}
@@ -70481,7 +70504,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 868899180}
@@ -73540,10 +73564,10 @@ RectTransform:
   - {fileID: 501287772}
   - {fileID: 1318995880}
   - {fileID: 1972124462}
-  - {fileID: 1392402045}
-  - {fileID: 1310971776}
   - {fileID: 1149941338}
   - {fileID: 649312265}
+  - {fileID: 1392402045}
+  - {fileID: 1310971776}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 19.978}
   m_AnchorMin: {x: 0, y: 0}
@@ -74325,7 +74349,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1365877943}
@@ -78485,7 +78510,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1433556473}
@@ -81016,7 +81042,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1477093885}
@@ -82477,7 +82504,6 @@ MonoBehaviour:
   healthText: {fileID: 115653374}
   outerBorder: {fileID: 1108746097}
   crdImg: {fileID: 1223021570}
-  health: 1
   isSelected: 0
   tagToSearch: Player1
   dice1: {fileID: 2029075385}
@@ -85566,7 +85592,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1527229162}
@@ -86528,7 +86555,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1529615357}
@@ -88343,7 +88371,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1554088467}
@@ -88864,7 +88893,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 178532712}
@@ -96357,7 +96387,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1744196520}
@@ -98757,7 +98788,6 @@ MonoBehaviour:
   healthText: {fileID: 418329613}
   outerBorder: {fileID: 1132337981}
   crdImg: {fileID: 1701956523}
-  health: 1
   isSelected: 0
   tagToSearch: Player1
   dice1: {fileID: 2029075385}
@@ -100914,7 +100944,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1896393035}
@@ -103070,7 +103101,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1944174838}
@@ -103249,7 +103281,6 @@ MonoBehaviour:
   healthText: {fileID: 965339064}
   outerBorder: {fileID: 1133571860}
   crdImg: {fileID: 1758911320}
-  health: 1
   isSelected: 0
   tagToSearch: Player1
   dice1: {fileID: 2029075385}
@@ -104582,7 +104613,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1974909833}
@@ -105584,7 +105616,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 1979539343}
@@ -107420,7 +107453,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 2024895039}
@@ -108151,7 +108185,6 @@ MonoBehaviour:
   healthText: {fileID: 1936079785}
   outerBorder: {fileID: 498189432}
   crdImg: {fileID: 1827283039}
-  health: 1
   isSelected: 0
   tagToSearch: Player1
   dice1: {fileID: 2029075385}
@@ -109602,7 +109635,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 2045142956}
@@ -110677,7 +110711,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 2059892635}
@@ -114544,7 +114579,8 @@ MonoBehaviour:
     cardEnergy: 1
     cardDefence: 0
     cardImage: {fileID: 21300000, guid: 3788cd3a7fcf0474aae3aedf3888d697, type: 3}
-  premium: []
+  premiumPack: []
+  goldPack: []
   displayId: 0
   cardid: 0
   nameText: {fileID: 206386808268493628}
