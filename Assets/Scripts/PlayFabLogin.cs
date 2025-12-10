@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
 using Photon.Pun;
+using System.Linq;
+//using UnityEngine.UIElements;
 
 public class PlayFabLogin : MonoBehaviour
 {
@@ -23,6 +25,12 @@ public class PlayFabLogin : MonoBehaviour
     private string myRank = "Bronze";
     [SerializeField] private TMP_Text rankText;  // Drag your UI text here in Inspector
     [SerializeField] private TMP_Text XPText;
+
+    [Header("XP Slider UI")]
+    [SerializeField] private Slider xpSlider;
+
+    [SerializeField] private GameObject playerStatePrefab; // Prefab for PlayerStateObject
+    [SerializeField] private Transform contentParent;      // Parent object (Content in the ScrollView)
 
     public void Start()
     {
@@ -74,7 +82,8 @@ public class PlayFabLogin : MonoBehaviour
         Debug.Log("PlayFabId stored in Photon custom properties.");
         LoadingPanel.SetActive(false);
         FetchXPAndRankFromPlayFab();
-        
+        GetPuzzleLeaderboard();
+
         // Now safe to load profile picture
         FindObjectOfType<ProfilePictureManager>()?.LoadProfilePictureFromPlayFab();
         //  GetPlayerDisplayName();
@@ -155,6 +164,9 @@ public class PlayFabLogin : MonoBehaviour
         // Show XP progress out of 100
         int xpProgress = myXP % 100;
         XPText.text = $"XP: {xpProgress} / 100";
+
+        xpSlider.value = xpProgress / 100f;
+       // xpPercentText.text = $"{xpProgress}%";
     }
 
     public void SetUsername()
@@ -190,5 +202,59 @@ public class PlayFabLogin : MonoBehaviour
             UsernameTxt.text = username;
         }
         Debug.Log("Username updated in UI: " + username);
+    }
+
+    public void GetPuzzleLeaderboard()
+    {
+        var request = new GetLeaderboardRequest
+        {
+            StatisticName = "XP", // <- Your stat
+            StartPosition = 0,
+            MaxResultsCount = 10
+        };
+
+        PlayFabClientAPI.GetLeaderboard(request,
+            result =>
+            {
+                Debug.Log("Puzzle leaderboard fetched.");
+                var reversedList = result.Leaderboard.OrderBy(entry => entry.StatValue).ToList();
+                DisplayLeaderboard(result.Leaderboard, contentParent);  // ← global
+            },
+            error =>
+            {
+                Debug.LogError("Failed to fetch Puzzle leaderboard: " + error.GenerateErrorReport());
+            });
+    }
+
+    private void DisplayLeaderboard(List<PlayerLeaderboardEntry> leaderboard, Transform contentParent4)
+    {
+        Debug.Log("Rank\tName\t\tScore");
+
+        // Clear old entries
+        foreach (Transform child in contentParent4)
+        {
+            Destroy(child.gameObject);
+        }
+
+        int pos = 0;
+
+        // Display new entries
+        foreach (var entry in leaderboard)
+        {
+            pos++;
+            GameObject playerRow = Instantiate(playerStatePrefab, contentParent4);
+
+           // Image im = 
+            TMP_Text playerNameText = playerRow.transform.GetChild(1).GetComponent<TMP_Text>();
+            TMP_Text snoText = playerRow.transform.GetChild(2).GetComponent<TMP_Text>();
+            TMP_Text scoreText = playerRow.transform.GetChild(3).GetComponent<TMP_Text>();
+
+            //snoText.text = (entry.Position + 1).ToString();
+            snoText.text = pos.ToString();
+            playerNameText.text = string.IsNullOrEmpty(entry.DisplayName) ? "Anonymous" : entry.DisplayName;
+            scoreText.text = entry.StatValue.ToString();
+
+            Debug.Log($"{entry.Position + 1}\t{playerNameText.text}\t{entry.StatValue}");
+        }
     }
 }

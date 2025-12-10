@@ -60,6 +60,9 @@ public class SceneM : MonoBehaviourPunCallbacks
     public Slider sfxSlider;
     public TMP_Text sfxText;
 
+    public Toggle gemToggle;
+    public Toggle coinToggle;
+
     private void Start()
     {
         roomListData = new Dictionary<string, RoomInfo>();
@@ -261,7 +264,7 @@ public class SceneM : MonoBehaviourPunCallbacks
         ActivateMyPanel(LeaderBoardPanel.name);
     }
 
-    public void CurrencyCilck()
+    public void CurrencyCilck() ////////////////////////////////////////////////
     {
         ActivateMyPanel(GemPanel.name);
         if (!GemInnerPanel.activeSelf) 
@@ -269,6 +272,7 @@ public class SceneM : MonoBehaviourPunCallbacks
             GemInnerPanel.SetActive(true);
         }
         CoinInnerPanel.SetActive(false);
+        gemToggle.isOn = true;
     }
 
     public void DollarClick() 
@@ -279,7 +283,7 @@ public class SceneM : MonoBehaviourPunCallbacks
             CoinInnerPanel.SetActive(true);
         }
         GemInnerPanel.SetActive(false);
-
+        coinToggle.isOn = true;
     }
 
     private void OnSfxSliderValueChanged(float val)

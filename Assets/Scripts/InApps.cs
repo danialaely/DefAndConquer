@@ -7,6 +7,9 @@ public class InApps : MonoBehaviour
     [SerializeField] private TMP_Text gemsText;
     [SerializeField] private TMP_Text coinsText;
 
+    public GameObject GemInnerPanel;
+    public GameObject CoinInnerPanel;
+
     [Header("Deck Toggles (1=Starter, 2=Bronze, 3=Silver)")]
     public Toggle[] deckToggles;
 
@@ -132,6 +135,18 @@ public class InApps : MonoBehaviour
     {
         PlayerPrefs.SetInt("SelectedDeck", index);
         Debug.Log($"🎴 Selected Deck {index + 1}");
+    }
+
+    public void ClickGemInShop() 
+    {
+        GemInnerPanel.SetActive(true);
+        CoinInnerPanel.SetActive(false);
+    }
+
+    public void ClickCoinInShop()
+    {
+        CoinInnerPanel.SetActive(true);
+        GemInnerPanel.SetActive(false);
     }
 
 }
