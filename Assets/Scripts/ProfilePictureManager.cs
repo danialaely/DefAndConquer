@@ -5,6 +5,7 @@ using System.IO;
 using PlayFab;
 using PlayFab.ClientModels;
 using ImageCropperNamespace;
+using TMPro;
 
 public class ProfilePictureManager : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class ProfilePictureManager : MonoBehaviour
 
     private const string PROFILE_PIC_KEY = "ProfilePicture"; // PlayFab user data key
     private Texture2D croppedTexture;
+
+    [Header("UI")]
+    public TMP_Text [] nameTexts;     // size 3
+    public RawImage[] profileImages;        // size 3
 
     private void Awake()
     {
@@ -33,6 +38,7 @@ public class ProfilePictureManager : MonoBehaviour
     private void Start()
     {
         changeProfileButton.onClick.AddListener(OnChangeProfileButtonClicked);
+        StartCoroutine(loadLB(5.0f));
         // LoadProfilePictureFromPlayFab();
     }
 
@@ -89,6 +95,75 @@ public class ProfilePictureManager : MonoBehaviour
         });
     }
 
+    public IEnumerator loadLB(float del) 
+    {
+        yield return new WaitForSeconds(del);
+        FetchTop3Leaderboard();
+    }
+
+    public void FetchTop3Leaderboard()
+    {
+        var request = new GetLeaderboardRequest
+        {
+            StatisticName = "XP",
+            StartPosition = 0,
+            MaxResultsCount = 3
+        };
+
+        PlayFabClientAPI.GetLeaderboard(request, OnLeaderboardSuccess, OnError);
+    }
+
+    private void OnLeaderboardSuccess(GetLeaderboardResult result)
+    {
+        for (int i = 0; i < result.Leaderboard.Count; i++)
+        {
+            var entry = result.Leaderboard[i];
+
+            // Player Name
+            nameTexts[i].text = string.IsNullOrEmpty(entry.DisplayName)
+                ? "Player"
+                : entry.DisplayName;
+
+            // Load Profile Picture
+            LoadProfilePicture(entry.PlayFabId, profileImages[i]);
+        }
+    }
+
+    private void LoadProfilePicture(string playFabId, RawImage targetImage)
+    {
+        var request = new GetUserDataRequest
+        {
+            PlayFabId = playFabId
+        };
+
+        PlayFabClientAPI.GetUserData(request, result =>
+        {
+            if (result.Data != null && result.Data.ContainsKey(PROFILE_PIC_KEY))
+            {
+                string base64 = result.Data[PROFILE_PIC_KEY].Value;
+                byte[] bytes = System.Convert.FromBase64String(base64);
+
+                Texture2D tex = new Texture2D(2, 2);
+                tex.LoadImage(bytes);
+                targetImage.texture = tex;
+            }
+            else
+            {
+                Debug.Log($"No profile picture for {playFabId}");
+                targetImage.texture = null; // or default avatar
+            }
+        },
+        error =>
+        {
+            Debug.LogError("Failed to load profile picture: " + error.GenerateErrorReport());
+        });
+    }
+
+    private void OnError(PlayFabError error)
+    {
+        Debug.LogError(error.GenerateErrorReport());
+    }
+    
     private IEnumerator UploadProfilePictureToPlayFab(Texture2D texture)
     {
         //ShowLoading(true);
